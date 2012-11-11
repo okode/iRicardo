@@ -1,4 +1,4 @@
 iRicardo
 ========
 
-iRicardo App
+This is iRicardo App
