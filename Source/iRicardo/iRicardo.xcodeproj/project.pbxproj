@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB331632A4F600935CDF /* UIKit.framework */; };
+		88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB351632A4F600935CDF /* Foundation.framework */; };
+		88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB371632A4F600935CDF /* CoreGraphics.framework */; };
+		88D3BB3E1632A4F600935CDF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB3C1632A4F600935CDF /* InfoPlist.strings */; };
+		88D3BB401632A4F600935CDF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB3F1632A4F600935CDF /* main.m */; };
+		88D3BB511632A55A00935CDF /* OKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB4E1632A55A00935CDF /* OKAppDelegate.m */; };
+		88D3BB541632A58300935CDF /* OKUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB531632A58300935CDF /* OKUserView.m */; };
+		88D3BB571632A5EB00935CDF /* OKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB561632A5EB00935CDF /* OKUser.m */; };
+		88D3BB5A1632A6C800935CDF /* OKTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB591632A6C800935CDF /* OKTask.m */; };
+		88D3BB611632B44F00935CDF /* OKGameProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB601632B44F00935CDF /* OKGameProperties.m */; };
+		88D3BB641632CD2F00935CDF /* OKGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB631632CD2F00935CDF /* OKGameViewController.m */; };
+		88D3BB6716330AD500935CDF /* OKRicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D3BB6616330AD500935CDF /* OKRicView.m */; };
+		88D3BB6C16331D5900935CDF /* jira.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6916331D5900935CDF /* jira.png */; };
+		88D3BB6D16331D5900935CDF /* jira@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6A16331D5900935CDF /* jira@2x.png */; };
+		88D3BB6E16331D5900935CDF /* logo_jira_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6B16331D5900935CDF /* logo_jira_blue.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		88D3BB2F1632A4F600935CDF /* iRicardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRicardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BB331632A4F600935CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88D3BB351632A4F600935CDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88D3BB371632A4F600935CDF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88D3BB3B1632A4F600935CDF /* iRicardo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRicardo-Info.plist"; sourceTree = "<group>"; };
+		88D3BB3D1632A4F600935CDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88D3BB3F1632A4F600935CDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88D3BB411632A4F600935CDF /* iRicardo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRicardo-Prefix.pch"; sourceTree = "<group>"; };
+		88D3BB4D1632A55A00935CDF /* OKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKAppDelegate.h; sourceTree = "<group>"; };
+		88D3BB4E1632A55A00935CDF /* OKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKAppDelegate.m; sourceTree = "<group>"; };
+		88D3BB521632A58300935CDF /* OKUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKUserView.h; sourceTree = "<group>"; };
+		88D3BB531632A58300935CDF /* OKUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKUserView.m; sourceTree = "<group>"; };
+		88D3BB551632A5EB00935CDF /* OKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKUser.h; sourceTree = "<group>"; };
+		88D3BB561632A5EB00935CDF /* OKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKUser.m; sourceTree = "<group>"; };
+		88D3BB581632A6C800935CDF /* OKTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKTask.h; sourceTree = "<group>"; };
+		88D3BB591632A6C800935CDF /* OKTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKTask.m; sourceTree = "<group>"; };
+		88D3BB5F1632B44F00935CDF /* OKGameProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKGameProperties.h; sourceTree = "<group>"; };
+		88D3BB601632B44F00935CDF /* OKGameProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKGameProperties.m; sourceTree = "<group>"; };
+		88D3BB621632CD2F00935CDF /* OKGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKGameViewController.h; sourceTree = "<group>"; };
+		88D3BB631632CD2F00935CDF /* OKGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKGameViewController.m; sourceTree = "<group>"; };
+		88D3BB6516330AD500935CDF /* OKRicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKRicView.h; sourceTree = "<group>"; };
+		88D3BB6616330AD500935CDF /* OKRicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKRicView.m; sourceTree = "<group>"; };
+		88D3BB6916331D5900935CDF /* jira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jira.png; sourceTree = "<group>"; };
+		88D3BB6A16331D5900935CDF /* jira@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jira@2x.png"; sourceTree = "<group>"; };
+		88D3BB6B16331D5900935CDF /* logo_jira_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_jira_blue.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88D3BB2C1632A4F500935CDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */,
+				88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */,
+				88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88D3BB241632A4F500935CDF = {
+			isa = PBXGroup;
+			children = (
+				88D3BB391632A4F600935CDF /* iRicardo */,
+				88D3BB321632A4F600935CDF /* Frameworks */,
+				88D3BB301632A4F600935CDF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88D3BB301632A4F600935CDF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB2F1632A4F600935CDF /* iRicardo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88D3BB321632A4F600935CDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB331632A4F600935CDF /* UIKit.framework */,
+				88D3BB351632A4F600935CDF /* Foundation.framework */,
+				88D3BB371632A4F600935CDF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88D3BB391632A4F600935CDF /* iRicardo */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB6816331D5900935CDF /* Resources */,
+				88D3BB4A1632A55A00935CDF /* Source */,
+				88D3BB3A1632A4F600935CDF /* Supporting Files */,
+			);
+			path = iRicardo;
+			sourceTree = "<group>";
+		};
+		88D3BB3A1632A4F600935CDF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB3B1632A4F600935CDF /* iRicardo-Info.plist */,
+				88D3BB3C1632A4F600935CDF /* InfoPlist.strings */,
+				88D3BB3F1632A4F600935CDF /* main.m */,
+				88D3BB411632A4F600935CDF /* iRicardo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88D3BB4A1632A55A00935CDF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB4B1632A55A00935CDF /* Controller */,
+				88D3BB4C1632A55A00935CDF /* Main */,
+				88D3BB4F1632A55A00935CDF /* Model */,
+				88D3BB501632A55A00935CDF /* View */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		88D3BB4B1632A55A00935CDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB621632CD2F00935CDF /* OKGameViewController.h */,
+				88D3BB631632CD2F00935CDF /* OKGameViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		88D3BB4C1632A55A00935CDF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB4D1632A55A00935CDF /* OKAppDelegate.h */,
+				88D3BB4E1632A55A00935CDF /* OKAppDelegate.m */,
+				88D3BB5F1632B44F00935CDF /* OKGameProperties.h */,
+				88D3BB601632B44F00935CDF /* OKGameProperties.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		88D3BB4F1632A55A00935CDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB551632A5EB00935CDF /* OKUser.h */,
+				88D3BB561632A5EB00935CDF /* OKUser.m */,
+				88D3BB581632A6C800935CDF /* OKTask.h */,
+				88D3BB591632A6C800935CDF /* OKTask.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88D3BB501632A55A00935CDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB521632A58300935CDF /* OKUserView.h */,
+				88D3BB531632A58300935CDF /* OKUserView.m */,
+				88D3BB6516330AD500935CDF /* OKRicView.h */,
+				88D3BB6616330AD500935CDF /* OKRicView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88D3BB6816331D5900935CDF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				88D3BB6916331D5900935CDF /* jira.png */,
+				88D3BB6A16331D5900935CDF /* jira@2x.png */,
+				88D3BB6B16331D5900935CDF /* logo_jira_blue.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88D3BB2E1632A4F500935CDF /* iRicardo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88D3BB471632A4F600935CDF /* Build configuration list for PBXNativeTarget "iRicardo" */;
+			buildPhases = (
+				88D3BB2B1632A4F500935CDF /* Sources */,
+				88D3BB2C1632A4F500935CDF /* Frameworks */,
+				88D3BB2D1632A4F500935CDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iRicardo;
+			productName = iRicardo;
+			productReference = 88D3BB2F1632A4F600935CDF /* iRicardo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88D3BB261632A4F500935CDF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OK;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Daniel Soro Coicaud";
+			};
+			buildConfigurationList = 88D3BB291632A4F500935CDF /* Build configuration list for PBXProject "iRicardo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 88D3BB241632A4F500935CDF;
+			productRefGroup = 88D3BB301632A4F600935CDF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88D3BB2E1632A4F500935CDF /* iRicardo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88D3BB2D1632A4F500935CDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88D3BB3E1632A4F600935CDF /* InfoPlist.strings in Resources */,
+				88D3BB6C16331D5900935CDF /* jira.png in Resources */,
+				88D3BB6D16331D5900935CDF /* jira@2x.png in Resources */,
+				88D3BB6E16331D5900935CDF /* logo_jira_blue.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88D3BB2B1632A4F500935CDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88D3BB401632A4F600935CDF /* main.m in Sources */,
+				88D3BB511632A55A00935CDF /* OKAppDelegate.m in Sources */,
+				88D3BB541632A58300935CDF /* OKUserView.m in Sources */,
+				88D3BB571632A5EB00935CDF /* OKUser.m in Sources */,
+				88D3BB5A1632A6C800935CDF /* OKTask.m in Sources */,
+				88D3BB611632B44F00935CDF /* OKGameProperties.m in Sources */,
+				88D3BB641632CD2F00935CDF /* OKGameViewController.m in Sources */,
+				88D3BB6716330AD500935CDF /* OKRicView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88D3BB3C1632A4F600935CDF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88D3BB3D1632A4F600935CDF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88D3BB451632A4F600935CDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		88D3BB461632A4F600935CDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88D3BB481632A4F600935CDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRicardo/iRicardo-Prefix.pch";
+				INFOPLIST_FILE = "iRicardo/iRicardo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88D3BB491632A4F600935CDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRicardo/iRicardo-Prefix.pch";
+				INFOPLIST_FILE = "iRicardo/iRicardo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88D3BB291632A4F500935CDF /* Build configuration list for PBXProject "iRicardo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88D3BB451632A4F600935CDF /* Debug */,
+				88D3BB461632A4F600935CDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88D3BB471632A4F600935CDF /* Build configuration list for PBXNativeTarget "iRicardo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88D3BB481632A4F600935CDF /* Debug */,
+				88D3BB491632A4F600935CDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88D3BB261632A4F500935CDF /* Project object */;
+}
