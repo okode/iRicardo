@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E4BF9351650329900CCE00C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E4BF9341650329900CCE00C /* Default-568h@2x.png */; };
+		3EFFBF0E165ED1CD005A448F /* bgaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EFFBF0D165ED1CD005A448F /* bgaudio.mp3 */; };
+		3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFFBF10165ED24E005A448F /* AVFoundation.framework */; };
 		88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB331632A4F600935CDF /* UIKit.framework */; };
 		88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB351632A4F600935CDF /* Foundation.framework */; };
 		88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB371632A4F600935CDF /* CoreGraphics.framework */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		3E4BF9341650329900CCE00C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3EFFBF0D165ED1CD005A448F /* bgaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgaudio.mp3; sourceTree = "<group>"; };
+		3EFFBF10165ED24E005A448F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		88D3BB2F1632A4F600935CDF /* iRicardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRicardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D3BB331632A4F600935CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88D3BB351632A4F600935CDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */,
 				88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */,
 				88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */,
 				88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */,
@@ -89,6 +94,7 @@
 		88D3BB321632A4F600935CDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EFFBF10165ED24E005A448F /* AVFoundation.framework */,
 				88D3BB331632A4F600935CDF /* UIKit.framework */,
 				88D3BB351632A4F600935CDF /* Foundation.framework */,
 				88D3BB371632A4F600935CDF /* CoreGraphics.framework */,
@@ -173,6 +179,7 @@
 		88D3BB6816331D5900935CDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3EFFBF0D165ED1CD005A448F /* bgaudio.mp3 */,
 				88D3BB6916331D5900935CDF /* jira.png */,
 				88D3BB6A16331D5900935CDF /* jira@2x.png */,
 				88D3BB6B16331D5900935CDF /* logo_jira_blue.png */,
@@ -237,6 +244,7 @@
 				88D3BB6D16331D5900935CDF /* jira@2x.png in Resources */,
 				88D3BB6E16331D5900935CDF /* logo_jira_blue.png in Resources */,
 				3E4BF9351650329900CCE00C /* Default-568h@2x.png in Resources */,
+				3EFFBF0E165ED1CD005A448F /* bgaudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

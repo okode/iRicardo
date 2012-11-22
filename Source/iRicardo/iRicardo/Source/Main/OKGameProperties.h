@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "OKTask.h"
 
-#define OK_USER_KEY_ADIAZ       @"adiaz"
-#define OK_USER_KEY_AQUEROL     @"aquerol"
-#define OK_USER_KEY_DSORO       @"dsoro"
-#define OK_USER_KEY_MPONS       @"mpons"
-#define OK_USER_KEY_PJORQUERA   @"pjorquera"
-#define OK_USER_KEY_RGIL        @"rgil"
-#define OK_USER_KEY_VQUEROL     @"vquerol"
+#define OK_USER_KEY_ADIAZ           @"adiaz"
+#define OK_USER_KEY_AQUEROL         @"aquerol"
+#define OK_USER_KEY_DSORO           @"dsoro"
+#define OK_USER_KEY_MPONS           @"mpons"
+#define OK_USER_KEY_PJORQUERA       @"pjorquera"
+#define OK_USER_KEY_RGIL            @"rgil"
+#define OK_USER_KEY_VQUEROL         @"vquerol"
 
 #define OK_USER_PARAM_NAME          @"name"
 #define OK_USER_PARAM_SPECIALTY     @"specialty"
 
+#define OK_BACKGROUND_AUDIO         @"bgaudio"
 
 #define RIC_SOLVING_TIME            30.0
 #define OVERWORK_TIME               20.0

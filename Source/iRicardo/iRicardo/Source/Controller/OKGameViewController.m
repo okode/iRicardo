@@ -34,6 +34,8 @@
 
 @synthesize gameOver;
 
+@synthesize audioBackground;
+
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -74,6 +76,10 @@
         assignTime = DEFAULT_ASSIGN_TASK_TIME;
         level = 0;
         gameOver = NO;
+        
+        NSURL* audioBackgroundURL = [[NSBundle mainBundle] URLForResource:OK_BACKGROUND_AUDIO withExtension:@"mp3"];
+        audioBackground = [[AVAudioPlayer alloc] initWithContentsOfURL:audioBackgroundURL error:NULL];
+        [audioBackground prepareToPlay];
     }
     return self;
 }
@@ -109,6 +115,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self createTask];
     [self restartTimer];
+    [audioBackground play];
 }
 
 -(void)createTask{
@@ -191,6 +198,8 @@
     [gameOverLabel setShadowOffset:CGSizeMake(1,1)];
     [gameOverLabel setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
     [self.view addSubview:gameOverLabel];
+    
+    [audioBackground stop];
 }
 
 @end
