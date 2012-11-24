@@ -34,7 +34,7 @@
 
 @synthesize gameOver;
 
-@synthesize audioBackground;
+@synthesize sound;
 
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
@@ -77,9 +77,7 @@
         level = 0;
         gameOver = NO;
         
-        NSURL* audioBackgroundURL = [[NSBundle mainBundle] URLForResource:OK_BACKGROUND_AUDIO withExtension:@"mp3"];
-        audioBackground = [[AVAudioPlayer alloc] initWithContentsOfURL:audioBackgroundURL error:NULL];
-        [audioBackground prepareToPlay];
+        sound = [[OKGameSound alloc] init];
     }
     return self;
 }
@@ -115,7 +113,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [self createTask];
     [self restartTimer];
-    [audioBackground play];
+    [sound play:OK_AUDIO_MUSIC];
 }
 
 -(void)createTask{
@@ -167,6 +165,7 @@
     BOOL assignedTask = [user asignTask:assignTask];
     if(assignedTask){
         [gameTimer invalidate];
+        [sound play:OK_AUDIO_ASSIGN_TASK];
         CGFloat assignPoints = (assignTime/DEFAULT_ASSIGN_TASK_TIME*pow(LEVEL_PERCENT_DECREASE,level))*DEFAULT_MAX_POINTS;
         points += floor(assignPoints);
         [pointsLabel setText:[NSString stringWithFormat:@"Points: %d",points]];
@@ -199,7 +198,8 @@
     [gameOverLabel setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
     [self.view addSubview:gameOverLabel];
     
-    [audioBackground stop];
+    [sound stop:OK_AUDIO_MUSIC];
+    [sound play:OK_AUDIO_GAMEOVER];
 }
 
 @end

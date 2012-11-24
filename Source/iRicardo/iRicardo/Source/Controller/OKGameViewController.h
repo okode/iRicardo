@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 #import "OKGameProperties.h"
+#import "OKGameSound.h"
 #import "OKTask.h"
 #import "OKUser.h"
 #import "OKUserView.h"
@@ -36,7 +36,6 @@
 
 @property (nonatomic, assign) BOOL gameOver;
 
-@property (nonatomic, strong) AVAudioPlayer* audioBackground;
-
+@property (nonatomic, strong) OKGameSound* sound;
 
 @end

@@ -20,7 +20,9 @@
 #define OK_USER_PARAM_NAME          @"name"
 #define OK_USER_PARAM_SPECIALTY     @"specialty"
 
-#define OK_BACKGROUND_AUDIO         @"bgaudio"
+#define OK_AUDIO_MUSIC              @"music"
+#define OK_AUDIO_ASSIGN_TASK        @"coin"
+#define OK_AUDIO_GAMEOVER           @"gameover"
 
 #define RIC_SOLVING_TIME            30.0
 #define OVERWORK_TIME               20.0
