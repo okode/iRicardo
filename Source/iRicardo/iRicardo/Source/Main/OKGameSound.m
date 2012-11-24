@@ -11,13 +11,16 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface OKGameSound ()
-@property(nonatomic, strong) NSMutableDictionary* players;
+@property (nonatomic, strong) NSMutableDictionary* players;
+@property (nonatomic, assign) NSInteger indexAudioAssign;
 -(void)appendSound:(NSString*)sound;
+-(void)appendSound:(NSString*)sound key:(NSString*)key;
 @end
 
 @implementation OKGameSound
 
 @synthesize players;
+@synthesize indexAudioAssign;
 
 - (id)init
 {
@@ -25,7 +28,10 @@
     if (self) {
         players = [[NSMutableDictionary alloc] init];
         [self appendSound:OK_AUDIO_MUSIC];
-        [self appendSound:OK_AUDIO_ASSIGN_TASK];
+        indexAudioAssign = 1;
+        [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign]];
+        [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign + 1]];
+        [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign + 2]];
         [self appendSound:OK_AUDIO_GAMEOVER];
     }
     return self;
@@ -33,14 +39,23 @@
 
 -(void)appendSound:(NSString*)sound
 {
-    players[sound] = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:sound
-                                                                                          withExtension:@"mp3"]
-                                                            error:NULL];
-    [players[sound] prepareToPlay];
+    [self appendSound:sound key:sound];
+}
+
+-(void)appendSound:(NSString*)sound key:(NSString*)key
+{
+    players[key] = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:sound
+                                                                                        withExtension:@"mp3"]
+                                                          error:NULL];
+    [players[key] prepareToPlay];
 }
 
 -(void)play:(NSString *)sound
 {
+    if([sound isEqualToString:OK_AUDIO_ASSIGN_TASK]) {
+        if((++indexAudioAssign > 3)) indexAudioAssign = 1;
+        sound = [NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign];
+    }
     [(AVAudioPlayer*)players[sound] play];
 }
 
