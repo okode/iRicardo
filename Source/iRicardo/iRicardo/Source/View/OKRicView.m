@@ -45,6 +45,27 @@
     return self;
 }
 
+-(void)removeUser{
+    [user removeUser];
+    [self setDelegate:nil];
+    [self setUser:nil];
+    [avatarView removeFromSuperview];
+    [progress removeFromSuperview];
+    [nameLabel removeFromSuperview];
+    [tasksLabel removeFromSuperview];
+}
+
+-(void)resetUser{
+    [user resetUser];
+    [tasksLabel setText:@"(0/5)"];
+    [progress setProgress:0.0];
+}
+
+-(void)pauseUser:(NSNumber*)pause{
+    [user pauseUser:pause];
+}
+
+
 #pragma mark OKUserDelegate methods
 
 -(void)userStartedATask{

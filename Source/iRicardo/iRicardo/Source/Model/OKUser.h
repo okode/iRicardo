@@ -29,6 +29,8 @@
 
 -(BOOL)asignTask:(OKTask*)task;
 -(void)pauseUser:(NSNumber*)pause;
+-(void)removeUser;
+-(void)resetUser;
 
 @property (nonatomic, assign) id<OKUserDelegate>delegate;
 @property (nonatomic, strong) NSString *key;

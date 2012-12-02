@@ -20,6 +20,9 @@
 @interface OKUserView : UIView <UIGestureRecognizerDelegate,OKUserDelegate>
 
 -(id)initWithDelegate:(id<OKUserViewDelegate>)dlg withUser:(OKUser*)kUser onFrame:(CGRect)frame;
+-(void)pauseUser:(NSNumber*)pause;
+-(void)removeUser;
+-(void)resetUser;
 
 @property (nonatomic, strong) id<OKUserViewDelegate> delegate;
 @property (nonatomic, strong) OKUser *user;

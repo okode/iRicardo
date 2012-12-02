@@ -39,7 +39,9 @@
 @synthesize pause;
 @synthesize pauseView;
 @synthesize pauseButton;
-@synthesize users;
+@synthesize userViews;
+@synthesize pauseLabel;
+@synthesize resumeButton;
 
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
@@ -89,6 +91,10 @@
         level = 0;
         gameOver = NO;
         
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+        [self setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
         sound = [[OKGameSound alloc] init];
     }
     return self;
@@ -111,7 +117,7 @@
     
     ricView = [[OKRicView alloc] initWithDelegate:self onFrame:CGRectMake(0,5,self.view.frame.size.width/2,100)];
     
-    users = [NSArray arrayWithObjects:pjorquera,aquerol,adiaz,dsoro,mpons,vquerol,[ricView user],nil];
+    userViews = [NSArray arrayWithObjects:pjorqueraView,aquerolView,dsoroView,adiazView,vquerolView,mponsView,ricView,nil];
     
     [self.view addSubview:pjorqueraView];
     [self.view addSubview:aquerolView];
@@ -130,43 +136,69 @@
     [sound play:OK_AUDIO_MUSIC];
 }
 
--(void)togglePause{
+-(void)restartGame{
+    assignTime = DEFAULT_ASSIGN_TASK_TIME;
+    level = 0;
+    points = 0;
+    gameOver = NO;
+    
+    [timerLabel setText:[NSString stringWithFormat:@"%.0f:000",DEFAULT_ASSIGN_TASK_TIME]];
+    [levelLabel setText:[NSString stringWithFormat:@"Level: %d",level]];
+    [pointsLabel setText:[NSString stringWithFormat:@"Points: %d",points]];
+    
+    [pauseView removeFromSuperview];
+    [self createTask];
+    [self restartTimer];
+    [sound play:OK_AUDIO_MUSIC];
+    
+}
+
+-(void)createBlockView{
     if(pauseView == nil){
         pauseView = [[UIView alloc] initWithFrame:self.view.bounds];
         [pauseView setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.75]];
-        UILabel *pauseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/4,self.view.bounds.size.width,self.view.bounds.size.height/4)];
+        pauseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/4,self.view.bounds.size.width,self.view.bounds.size.height/4)];
         [pauseLabel setBackgroundColor:[UIColor clearColor]];
-        [pauseLabel setText:@"Game Paused"];
         [pauseLabel setTextAlignment:UITextAlignmentCenter];
-        [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
-        [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
         [pauseLabel setShadowOffset:CGSizeMake(1,1)];
         [pauseLabel setShadowColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
         [pauseView addSubview:pauseLabel];
         
-        UILabel *pauseClickLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/2,self.view.bounds.size.width,self.view.bounds.size.height/4)];
-        [pauseClickLabel setBackgroundColor:[UIColor clearColor]];
-        [pauseClickLabel setText:@"(Press anywhere to continue)"];
-        [pauseClickLabel setTextAlignment:UITextAlignmentCenter];
-        [pauseClickLabel setFont:[UIFont boldSystemFontOfSize:20]];
-        [pauseClickLabel setNumberOfLines:0];
-        [pauseClickLabel setTextColor:[UIColor colorWithWhite:0.6 alpha:1]];
-        [pauseClickLabel setShadowOffset:CGSizeMake(1,1)];
-        [pauseClickLabel setShadowColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
-        [pauseView addSubview:pauseClickLabel];
+        resumeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [resumeButton setFrame:CGRectMake((self.view.bounds.size.width-200)/2,self.view.bounds.size.height/2,200,40)];
+        [pauseView addSubview:resumeButton];
         
-        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(togglePause)];
-        [pauseView addGestureRecognizer:tapRecognizer];
+        UIButton *quitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [quitButton setFrame:CGRectMake((self.view.bounds.size.width-200)/2,self.view.bounds.size.height/2+60,200,40)];
+        [quitButton setTitle:@"Return to Main" forState:UIControlStateNormal];
+        [quitButton addTarget:self action:@selector(quitGame) forControlEvents:UIControlEventTouchUpInside];
+        [pauseView addSubview:quitButton];
     }
+}
+
+-(void)togglePause{
+    [self createBlockView];
     if(!pause){
-        [users makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
+        [pauseLabel setText:@"Game Paused"];
+        [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
+        [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
+        [resumeButton setTitle:@"Resume game" forState:UIControlStateNormal];
+        [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
+        [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
         [self.view addSubview:pauseView];
         pause = YES;
     }else{
-        [users makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
+        [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
         [pauseView removeFromSuperview];
         pause = NO;
     }
+}
+
+-(void)quitGame{
+    [sound stop:OK_AUDIO_MUSIC];
+    [gameTimer invalidate];
+    [userViews makeObjectsPerformSelector:@selector(removeUser)];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)createTask{
@@ -180,6 +212,10 @@
     assignTime = DEFAULT_ASSIGN_TASK_TIME*pow(LEVEL_PERCENT_DECREASE,level);
     NSTimeInterval interval = OK_COUNTDOWN_TIMER;
     taskCreatedTime = [NSDate date];
+    if([gameTimer isValid]){
+        [gameTimer invalidate];
+        [self setGameTimer:nil];
+    }
     gameTimer = [NSTimer scheduledTimerWithTimeInterval:interval
                                                  target:self
                                                selector:@selector(updateTimer)
@@ -241,16 +277,15 @@
 -(void)ricOverWorkAndGameOver{
     gameOver = YES;
     [gameTimer invalidate];
-
-    UILabel *gameOverLabel = [[UILabel alloc] initWithFrame:self.view.frame];
-    [gameOverLabel setBackgroundColor:[UIColor clearColor]];
-    [gameOverLabel setText:@"GAME OVER"];
-    [gameOverLabel setTextAlignment:UITextAlignmentCenter];
-    [gameOverLabel setFont:[UIFont boldSystemFontOfSize:50]];
-    [gameOverLabel setTextColor:[UIColor redColor]];
-    [gameOverLabel setShadowOffset:CGSizeMake(1,1)];
-    [gameOverLabel setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.7]];
-    [self.view addSubview:gameOverLabel];
+    [userViews makeObjectsPerformSelector:@selector(resetUser)];
+    [self createBlockView];
+    [pauseLabel setText:@"GAME OVER"];
+    [pauseLabel setFont:[UIFont boldSystemFontOfSize:50]];
+    [pauseLabel setTextColor:[UIColor redColor]];
+    [resumeButton setTitle:@"Restart game" forState:UIControlStateNormal];
+    [resumeButton addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:pauseView];
+    
     
     [sound stop:OK_AUDIO_MUSIC];
     [sound play:OK_AUDIO_GAMEOVER];

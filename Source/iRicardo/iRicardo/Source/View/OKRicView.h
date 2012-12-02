@@ -18,6 +18,9 @@
 @interface OKRicView : UIView <OKUserDelegate>
 
 -(id)initWithDelegate:(id<OKRicViewDelegate>)dlg onFrame:(CGRect)frame;
+-(void)removeUser;
+-(void)resetUser;
+-(void)pauseUser:(NSNumber*)pause;
 
 @property (nonatomic, strong) id<OKRicViewDelegate> delegate;
 @property (nonatomic, strong) OKUser *user;

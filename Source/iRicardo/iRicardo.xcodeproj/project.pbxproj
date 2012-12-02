@@ -23,6 +23,7 @@
 		3EC667701660FE7100974613 /* warning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EC667631660FE7100974613 /* warning.mp3 */; };
 		3EC667731660FE9400974613 /* OKGameSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC667721660FE9400974613 /* OKGameSound.m */; };
 		3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFFBF10165ED24E005A448F /* AVFoundation.framework */; };
+		88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FF6166B91F3007553FE /* OKMainMenuViewController.m */; };
 		88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB331632A4F600935CDF /* UIKit.framework */; };
 		88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB351632A4F600935CDF /* Foundation.framework */; };
 		88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB371632A4F600935CDF /* CoreGraphics.framework */; };
@@ -58,6 +59,8 @@
 		3EC667711660FE9400974613 /* OKGameSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKGameSound.h; sourceTree = "<group>"; };
 		3EC667721660FE9400974613 /* OKGameSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKGameSound.m; sourceTree = "<group>"; };
 		3EFFBF10165ED24E005A448F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		88146FF5166B91F3007553FE /* OKMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKMainMenuViewController.h; sourceTree = "<group>"; };
+		88146FF6166B91F3007553FE /* OKMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMainMenuViewController.m; sourceTree = "<group>"; };
 		88D3BB2F1632A4F600935CDF /* iRicardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRicardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D3BB331632A4F600935CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88D3BB351632A4F600935CDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +189,8 @@
 			children = (
 				88D3BB621632CD2F00935CDF /* OKGameViewController.h */,
 				88D3BB631632CD2F00935CDF /* OKGameViewController.m */,
+				88146FF5166B91F3007553FE /* OKMainMenuViewController.h */,
+				88146FF6166B91F3007553FE /* OKMainMenuViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				88D3BB641632CD2F00935CDF /* OKGameViewController.m in Sources */,
 				88D3BB6716330AD500935CDF /* OKRicView.m in Sources */,
 				3EC667731660FE9400974613 /* OKGameSound.m in Sources */,
+				88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

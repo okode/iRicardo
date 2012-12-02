@@ -33,7 +33,7 @@
 @property (nonatomic, strong) NSTimer *gameTimer;
 
 @property (nonatomic, strong) NSDate *taskCreatedTime;
-@property (nonatomic, strong) NSArray *users;
+@property (nonatomic, strong) NSArray *userViews;
 @property (nonatomic, strong) OKRicView *ricView;
 @property (nonatomic, strong) OKTask *assignTask;
 
@@ -43,5 +43,7 @@
 
 @property (nonatomic, assign) BOOL pause;
 @property (nonatomic, strong) UIView *pauseView;
+@property (nonatomic, strong) UILabel *pauseLabel;
+@property (nonatomic, strong) UIButton *resumeButton;
 
 @end

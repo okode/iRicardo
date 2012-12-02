@@ -8,6 +8,7 @@
 
 #import "OKAppDelegate.h"
 #import "OKGameViewController.h"
+#import "OKMainMenuViewController.h"
 #import "OKTask.h"
 
 @implementation OKAppDelegate
@@ -17,7 +18,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    OKGameViewController *controller = [[OKGameViewController alloc] init];
+    OKMainMenuViewController *controller = [[OKMainMenuViewController alloc] init];
     self.window.rootViewController = controller;
     
     [self.window makeKeyAndVisible];    

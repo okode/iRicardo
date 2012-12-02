@@ -83,6 +83,10 @@
     
     NSLog(@"%@ is in overflow mode",name);
     NSTimeInterval interval = OVERWORK_TIME;
+    if([timer isValid]){
+        [timer invalidate];
+        [self setTimer:nil];
+    }
     timer = [NSTimer scheduledTimerWithTimeInterval:interval
                                              target:self
                                            selector:@selector(overWorkEnded)
@@ -102,6 +106,10 @@
         if(overwork){
             NSTimeInterval timeLeft = OVERWORK_TIME - [pausedTime timeIntervalSinceDate:overflowTime];
             NSLog(@"Quedan %f de los %f",timeLeft,OVERWORK_TIME);
+            if([timer isValid]){
+                [timer invalidate];
+                [self setTimer:nil];
+            }
             timer = [NSTimer scheduledTimerWithTimeInterval:timeLeft
                                                      target:self
                                                    selector:@selector(overWorkEnded)
@@ -125,6 +133,10 @@
         taskProcess = ([currentTask type] == [self specialty]) ? EASY_TASK_TIME : HARD_TASK_TIME;
         if([self specialty] == OK_TASK_WONT_FIX) taskProcess = RIC_SOLVING_TIME;
         startTime = [NSDate date];
+        if([progressTimer isValid]){
+            [progressTimer invalidate];
+            [self setProgressTimer:nil];
+        }
         progressTimer = [NSTimer scheduledTimerWithTimeInterval:OK_LOW_COUNTDOWN_TIMER
                                                          target:self
                                                        selector:@selector(taskProgress)
@@ -164,6 +176,35 @@
     if([pendingTasks count] > 0){
         [self startTasks];
     }
+}
+
+-(void)removeUser{
+    [progressTimer invalidate];
+    [timer invalidate];
+    [self setDelegate:nil];
+    [self setKey:nil];
+    [self setName:nil];
+    [pendingTasks removeAllObjects];
+    [self setPendingTasks:nil];
+    [self setCurrentTask:nil];
+    [self setStartTime:nil];
+    [self setOverflowTime:nil];
+    [self setTimer:nil];
+    [self setProgressTimer:nil];
+    [self setPausedTime:nil];
+}
+
+-(void)resetUser{
+    [progressTimer invalidate];
+    [timer invalidate];
+    pendingTasks = 0;
+    overwork = NO;
+    working = NO;
+    overworkRemaining = 0;
+    paused = NO;
+    [pendingTasks removeAllObjects];
+    pendingTasks = [[NSMutableArray alloc] initWithCapacity:OK_MAX_USER_TASKS];
+    [self setCurrentTask:nil];
 }
 
 @end

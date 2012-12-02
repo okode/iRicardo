@@ -54,6 +54,28 @@
     return self;
 }
 
+-(void)removeUser{
+    [user removeUser];
+    [self setDelegate:nil];
+    [self setUser:nil];
+    [avatarView removeFromSuperview];
+    [progress removeFromSuperview];
+    [nameLabel removeFromSuperview];
+    [tasksLabel removeFromSuperview];
+    [overworkView removeFromSuperview];
+}
+
+-(void)resetUser{
+    [user resetUser];
+    [tasksLabel setText:@"(0/5)"];
+    [progress setProgress:0.0];
+    [overworkView removeFromSuperview];
+}
+
+-(void)pauseUser:(NSNumber*)pause{
+    [user pauseUser:pause];
+}
+
 -(void)tapRecognized:(id)sender{
     //NSLog(@"Tap recognized on user: %@",[user name]);
     [delegate userSelected:user inView:self];
