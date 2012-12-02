@@ -191,12 +191,12 @@
     [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
     [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
     [self.view addSubview:pauseView];
+    [sound pause];
     pause = YES;
 }
 
 -(void)togglePause{
     if(!pause){
-        [sound pause];
         [self pauseGame];
     }else{
         [sound resume];
