@@ -22,8 +22,8 @@ Recursos
 Desarrollo
 ----------
 
-- Pantalla principal con opciones de iniciar juego, ver puntuaciones, about...
-- Guardar puntuaciones (Con usar el NSUserDefaults en plan rápido sobra)
+- Pantalla de "Cómo jugar"
+- Pantalla de "About"
 - Aplicar diseño final de la aplicación, imágenes y sonidos
 - Adaptar la aplicación para iPhone 5.
 
