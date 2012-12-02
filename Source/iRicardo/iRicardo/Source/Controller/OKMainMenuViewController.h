@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "OKGameViewController.h"
+#import "OKScoresViewController.h"
 
 @interface OKMainMenuViewController : UIViewController
 
 -(void)pauseGame;
 
 @property (nonatomic, strong) OKGameViewController *gameController;
+@property (nonatomic, strong) OKScoresViewController *scoresController;
 
 @end

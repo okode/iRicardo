@@ -15,6 +15,7 @@
 @implementation OKMainMenuViewController
 
 @synthesize gameController;
+@synthesize scoresController;
 
 -(id)init{
     self = [super init];
@@ -31,6 +32,7 @@
         UIButton *highScoresButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [highScoresButton setTitle:@"High scores" forState:UIControlStateNormal];
         [highScoresButton setFrame:CGRectMake(40,200,240,32)];
+        [highScoresButton addTarget:self action:@selector(showScores) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:highScoresButton];
         UIButton *aboutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [aboutButton setTitle:@"About iRicardo" forState:UIControlStateNormal];
@@ -50,6 +52,13 @@
 -(void)startGame{
     gameController = [[OKGameViewController alloc] init];
     [self presentViewController:gameController animated:YES completion:nil];
+}
+
+-(void)showScores{
+    if(scoresController== nil){
+        scoresController = [[OKScoresViewController alloc] init];
+    }
+     [self presentViewController:scoresController animated:YES completion:nil];
 }
 
 -(void)pauseGame{

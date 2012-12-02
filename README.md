@@ -24,8 +24,6 @@ Desarrollo
 
 - Pantalla principal con opciones de iniciar juego, ver puntuaciones, about...
 - Guardar puntuaciones (Con usar el NSUserDefaults en plan rápido sobra)
-- Opción de pausar el juego
-- Arreglar la autoasignación de tareas a Ricardo... parece que algo esta fallando en la lógica de esto.
 - Aplicar diseño final de la aplicación, imágenes y sonidos
 - Adaptar la aplicación para iPhone 5.
 

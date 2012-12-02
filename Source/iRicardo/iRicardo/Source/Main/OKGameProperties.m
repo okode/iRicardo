@@ -94,5 +94,72 @@
     return [weights count] - 1;
 }
 
++(NSArray*)getHighScorePoints{
+    NSArray *scores = [[NSUserDefaults standardUserDefaults] objectForKey:OK_HIGH_SCORE_POINTS];
+    return (scores == nil) ? [[NSArray alloc] init] : scores;
+}
+
++(NSArray*)getHighScoreNames{
+    NSArray *scores = [[NSUserDefaults standardUserDefaults] objectForKey:OK_HIGH_SCORE_NAMES];
+    return (scores == nil) ? [[NSArray alloc] init] : scores;
+}
+
++(BOOL)isHighScore:(NSInteger)points{
+    NSArray *scores = [OKGameProperties getHighScorePoints];
+    if([scores count] < 5) return YES;
+    for(NSNumber *score in scores){
+        if([score intValue] < points){
+            return YES;
+        }
+    }
+    return NO;
+}
+
++(void)saveHighScore:(NSInteger)points withName:(NSString*)name{
+    NSInteger index = 0;
+    NSMutableArray *scores = [[NSMutableArray alloc] initWithCapacity:6];
+    //[[NSMutableArray alloc] initWithArray:[OKGameProperties getHighScorePoints]];
+    for(NSNumber *score in [OKGameProperties getHighScorePoints]){
+        [scores insertObject:score atIndex:index];
+        index++;
+    }
+    index=0;
+    NSMutableArray *names = [[NSMutableArray alloc] initWithCapacity:6];
+    //[[NSMutableArray alloc] initWithArray:[OKGameProperties getHighScoreNames]];
+    for(NSString *name in [OKGameProperties getHighScoreNames]){
+        [names insertObject:name atIndex:index];
+        index++;
+    }
+    NSNumber *savePoints = [NSNumber numberWithInt:points];
+    NSString *saveName = name;
+    
+    for(index = 0; index < 5; index++){
+        if([scores count] == index){
+            [scores insertObject:savePoints atIndex:index];
+            [names insertObject:saveName atIndex:index];
+            break;
+        }else{
+            if([savePoints intValue] > [[scores objectAtIndex:index] intValue]){
+                [scores insertObject:savePoints atIndex:index];
+                [names insertObject:saveName atIndex:index];
+                break;
+            }
+        }
+    }
+    
+    NSArray *finalScores = ([scores count] < 5) ? [NSArray arrayWithArray:scores] : [scores subarrayWithRange:NSMakeRange(0,5)];
+    NSArray *finalNames = ([names count] < 5) ? [NSArray arrayWithArray:names] : [names subarrayWithRange:NSMakeRange(0,5)];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:finalScores forKey:OK_HIGH_SCORE_POINTS];
+    [[NSUserDefaults standardUserDefaults] setObject:finalNames forKey:OK_HIGH_SCORE_NAMES];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void)removeHighScores{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:OK_HIGH_SCORE_POINTS];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:OK_HIGH_SCORE_NAMES];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 @end

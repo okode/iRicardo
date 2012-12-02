@@ -303,6 +303,22 @@
     
     [sound stop:OK_AUDIO_MUSIC];
     [sound play:OK_AUDIO_GAMEOVER];
+    
+    if([OKGameProperties isHighScore:points]){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"High Score!"
+                                                          message:@"Submit your name"
+                                                         delegate:self
+                                                cancelButtonTitle:@"Submit"
+                                                otherButtonTitles:nil];
+        
+        [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [message show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *userName = [[alertView textFieldAtIndex:0] text];
+    [OKGameProperties saveHighScore:points withName:userName];
 }
 
 @end

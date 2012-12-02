@@ -39,6 +39,20 @@
 
 #define OK_MAX_USER_TASKS           5
 
+#define OK_HIGH_SCORE_NAMES             @"highNames"
+#define OK_HIGH_SCORE_POINTS            @"highPoints"
+
+#define OK_FIRST_SCORE_NAME             @"1sn"
+#define OK_FIRST_SCORE_POINTS           @"1sp"
+#define OK_SECOND_SCORE_NAME            @"2sn"
+#define OK_SECOND_SCORE_POINTS          @"2sp"
+#define OK_THIRD_SCORE_NAME             @"3sn"
+#define OK_THIRD_SCORE_POINTS           @"3sp"
+#define OK_FOURTH_SCORE_NAME            @"4sn"
+#define OK_FOURTH_SCORE_POINTS          @"4sp"
+#define OK_FIFTH_SCORE_NAME             @"5sn"
+#define OK_FIFTH_SCORE_POINTS           @"5sp"
+
 @interface OKGameProperties : NSObject
 
 +(NSDictionary*)userPropertiesByKey:(NSString*)key;
@@ -53,5 +67,11 @@
 
 +(NSInteger)getRandomWeightedTaskType;
 +(NSString*)taskTypeName:(OKJiraType)type;
+
++(NSArray*)getHighScorePoints;
++(NSArray*)getHighScoreNames;
++(BOOL)isHighScore:(NSInteger)points;
++(void)saveHighScore:(NSInteger)points withName:(NSString*)name;
++(void)removeHighScores;
 
 @end

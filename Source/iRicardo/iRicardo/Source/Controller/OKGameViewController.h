@@ -14,7 +14,7 @@
 #import "OKUserView.h"
 #import "OKRicView.h"
 
-@interface OKGameViewController : UIViewController <OKUserViewDelegate, OKRicViewDelegate>
+@interface OKGameViewController : UIViewController <OKUserViewDelegate, OKRicViewDelegate, UIAlertViewDelegate>
 
 -(void)pauseGame;
 -(void)removeGame;
