@@ -22,6 +22,7 @@
 
 #define OK_AUDIO_MUSIC              @"music"
 #define OK_AUDIO_ASSIGN_TASK        @"coin"
+#define OK_AUDIO_ASSIGN_FAILED      @"breakblock"
 #define OK_AUDIO_GAMEOVER           @"gameover"
 
 #define RIC_SOLVING_TIME            30.0

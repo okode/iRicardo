@@ -32,6 +32,7 @@
         [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign]];
         [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign + 1]];
         [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign + 2]];
+        [self appendSound:OK_AUDIO_ASSIGN_FAILED];
         [self appendSound:OK_AUDIO_GAMEOVER];
     }
     return self;

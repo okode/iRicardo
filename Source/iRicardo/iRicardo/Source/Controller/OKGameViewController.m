@@ -141,6 +141,7 @@
         [gameTimer invalidate];
         assignTime = 0.0;
         //Assign task to RicView!
+        [sound play:OK_AUDIO_ASSIGN_FAILED];
         [ricView.user asignTask:assignTask];
         [UIView animateWithDuration:0.2 animations:^(void){
             [currentTaskView setCenter:ricView.center];
