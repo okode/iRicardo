@@ -36,10 +36,15 @@
 
 @synthesize sound;
 
+@synthesize pause;
+@synthesize pauseView;
+@synthesize pauseButton;
+
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         [self loadUsers];
+        pause = NO;
         
         timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2,0,self.view.frame.size.width/2,20)];
         [timerLabel setTextAlignment:UITextAlignmentCenter];
@@ -72,6 +77,12 @@
         [imgView setImage:[UIImage imageNamed:@"jira.png"]];
         [currentTaskView addSubview:imgView];
         [self.view addSubview:currentTaskView];
+        
+        pauseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [pauseButton setFrame:CGRectMake(2,110,60,35)];
+        [pauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
+        [pauseButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:pauseButton];
         
         assignTime = DEFAULT_ASSIGN_TASK_TIME;
         level = 0;
@@ -116,6 +127,43 @@
     [sound play:OK_AUDIO_MUSIC];
 }
 
+-(void)togglePause{
+    if(pauseView == nil){
+        pauseView = [[UIView alloc] initWithFrame:self.view.bounds];
+        [pauseView setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.75]];
+        UILabel *pauseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/4,self.view.bounds.size.width,self.view.bounds.size.height/4)];
+        [pauseLabel setBackgroundColor:[UIColor clearColor]];
+        [pauseLabel setText:@"Game Paused"];
+        [pauseLabel setTextAlignment:UITextAlignmentCenter];
+        [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
+        [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
+        [pauseLabel setShadowOffset:CGSizeMake(1,1)];
+        [pauseLabel setShadowColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
+        [pauseView addSubview:pauseLabel];
+        
+        UILabel *pauseClickLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/2,self.view.bounds.size.width,self.view.bounds.size.height/4)];
+        [pauseClickLabel setBackgroundColor:[UIColor clearColor]];
+        [pauseClickLabel setText:@"(Press anywhere to continue)"];
+        [pauseClickLabel setTextAlignment:UITextAlignmentCenter];
+        [pauseClickLabel setFont:[UIFont boldSystemFontOfSize:20]];
+        [pauseClickLabel setNumberOfLines:0];
+        [pauseClickLabel setTextColor:[UIColor colorWithWhite:0.6 alpha:1]];
+        [pauseClickLabel setShadowOffset:CGSizeMake(1,1)];
+        [pauseClickLabel setShadowColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
+        [pauseView addSubview:pauseClickLabel];
+        
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(togglePause)];
+        [pauseView addGestureRecognizer:tapRecognizer];
+    }
+    if(!pause){
+        [self.view addSubview:pauseView];
+        pause = YES;
+    }else{
+        [pauseView removeFromSuperview];
+        pause = NO;
+    }
+}
+
 -(void)createTask{
     if(gameOver) return;
     assignTask = [[OKTask alloc] initRandomTask];
@@ -135,7 +183,7 @@
 }
 
 -(void)updateTimer{
-    if(gameOver) return;
+    if(gameOver || pause) return;
     assignTime -= OK_COUNTDOWN_TIMER;
     if(assignTime < 0.0){
         [gameTimer invalidate];

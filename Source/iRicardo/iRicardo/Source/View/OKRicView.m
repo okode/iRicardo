@@ -62,6 +62,7 @@
 
 -(void)userOverWork{
     NSLog(@"RICARDO IS IN OVERWORK MODE. THE GAME IS OVER!!!");
+    [tasksLabel setText:@"(5/5)"];
     [delegate ricOverWorkAndGameOver];
 }
 

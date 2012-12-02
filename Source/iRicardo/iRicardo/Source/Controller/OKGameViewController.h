@@ -28,6 +28,8 @@
 @property (nonatomic, strong) UILabel *pointsLabel;
 @property (nonatomic, assign) NSInteger points;
 
+@property (nonatomic, strong) UIButton *pauseButton;
+
 @property (nonatomic, strong) NSTimer *gameTimer;
 
 @property (nonatomic, strong) NSDate *taskCreatedTime;
@@ -37,5 +39,8 @@
 @property (nonatomic, assign) BOOL gameOver;
 
 @property (nonatomic, strong) OKGameSound* sound;
+
+@property (nonatomic, assign) BOOL pause;
+@property (nonatomic, strong) UIView *pauseView;
 
 @end
