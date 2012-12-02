@@ -66,7 +66,9 @@
 
 -(void)stop:(NSString *)sound
 {
-    [(AVAudioPlayer*)[players objectForKey:sound] stop];
+    AVAudioPlayer* player = (AVAudioPlayer*)[players objectForKey:sound];
+    [pausedPlayers removeObject:player];
+    [player stop];
 }
 
 -(void)pause
