@@ -196,8 +196,10 @@
 
 -(void)togglePause{
     if(!pause){
+        [sound pause];
         [self pauseGame];
     }else{
+        [sound resume];
         [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
         [pauseView removeFromSuperview];
         pause = NO;

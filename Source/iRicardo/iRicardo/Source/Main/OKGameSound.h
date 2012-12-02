@@ -13,4 +13,7 @@
 -(void)play:(NSString*)sound;
 -(void)stop:(NSString*)sound;
 
+-(void)pause;
+-(void)resume;
+
 @end

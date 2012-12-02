@@ -12,6 +12,7 @@
 
 @interface OKGameSound ()
 @property (nonatomic, strong) NSMutableDictionary* players;
+@property (nonatomic, strong) NSMutableArray* pausedPlayers;
 @property (nonatomic, assign) NSInteger indexAudioAssign;
 -(void)appendSound:(NSString*)sound;
 -(void)appendSound:(NSString*)sound key:(NSString*)key;
@@ -20,6 +21,7 @@
 @implementation OKGameSound
 
 @synthesize players;
+@synthesize pausedPlayers;
 @synthesize indexAudioAssign;
 
 - (id)init
@@ -27,6 +29,7 @@
     self = [super init];
     if (self) {
         players = [[NSMutableDictionary alloc] init];
+        pausedPlayers = [[NSMutableArray alloc] init];
         [self appendSound:OK_AUDIO_MUSIC];
         indexAudioAssign = 1;
         [self appendSound:OK_AUDIO_ASSIGN_TASK key:[NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign]];
@@ -64,6 +67,24 @@
 -(void)stop:(NSString *)sound
 {
     [(AVAudioPlayer*)[players objectForKey:sound] stop];
+}
+
+-(void)pause
+{
+    for(NSString* sound in players) {
+        AVAudioPlayer* player = (AVAudioPlayer*)[players objectForKey:sound];
+        if([player isPlaying]) {
+            [player pause];
+            [pausedPlayers addObject:player];
+        }
+    }
+}
+
+-(void)resume
+{
+    for(AVAudioPlayer* player in pausedPlayers)
+        [player play];
+    [pausedPlayers removeAllObjects];
 }
 
 @end
