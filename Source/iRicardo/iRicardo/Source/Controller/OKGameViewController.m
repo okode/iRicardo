@@ -130,6 +130,12 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    if(pause){
+        [self pauseGame];
+    }
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [self createTask];
     [self restartTimer];
@@ -176,17 +182,21 @@
     }
 }
 
--(void)togglePause{
+-(void)pauseGame{
     [self createBlockView];
+    [pauseLabel setText:@"Game Paused"];
+    [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
+    [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
+    [resumeButton setTitle:@"Resume game" forState:UIControlStateNormal];
+    [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
+    [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
+    [self.view addSubview:pauseView];
+    pause = YES;
+}
+
+-(void)togglePause{
     if(!pause){
-        [pauseLabel setText:@"Game Paused"];
-        [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
-        [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
-        [resumeButton setTitle:@"Resume game" forState:UIControlStateNormal];
-        [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
-        [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
-        [self.view addSubview:pauseView];
-        pause = YES;
+        [self pauseGame];
     }else{
         [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
         [pauseView removeFromSuperview];
@@ -194,10 +204,14 @@
     }
 }
 
--(void)quitGame{
-    [sound stop:OK_AUDIO_MUSIC];
+-(void)removeGame{
     [gameTimer invalidate];
     [userViews makeObjectsPerformSelector:@selector(removeUser)];
+}
+
+-(void)quitGame{
+    [self removeGame];
+    [sound stop:OK_AUDIO_MUSIC];
     [self dismissModalViewControllerAnimated:YES];
 }
 

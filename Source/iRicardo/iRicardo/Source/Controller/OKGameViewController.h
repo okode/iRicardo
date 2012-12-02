@@ -16,6 +16,9 @@
 
 @interface OKGameViewController : UIViewController <OKUserViewDelegate, OKRicViewDelegate>
 
+-(void)pauseGame;
+-(void)removeGame;
+
 @property (nonatomic, strong) UILabel *timerLabel;
 @property (nonatomic, assign) CGFloat assignTime;
 

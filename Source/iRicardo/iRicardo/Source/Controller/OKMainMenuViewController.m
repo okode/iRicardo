@@ -7,13 +7,14 @@
 //
 
 #import "OKMainMenuViewController.h"
-#import "OKGameViewController.h"
 
 @interface OKMainMenuViewController ()
 
 @end
 
 @implementation OKMainMenuViewController
+
+@synthesize gameController;
 
 -(id)init{
     self = [super init];
@@ -39,9 +40,22 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    if(gameController){
+        [gameController removeGame];
+        [self setGameController:nil];
+    }
+}
+
 -(void)startGame{
-    OKGameViewController *gameViewController = [[OKGameViewController alloc] init];
-    [self presentViewController:gameViewController animated:YES completion:nil];
+    gameController = [[OKGameViewController alloc] init];
+    [self presentViewController:gameController animated:YES completion:nil];
+}
+
+-(void)pauseGame{
+    if(gameController){
+        [gameController pauseGame];
+    }
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OKMainMenuViewController.h"
 
 @interface OKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) OKMainMenuViewController *mainController;
 
 @end

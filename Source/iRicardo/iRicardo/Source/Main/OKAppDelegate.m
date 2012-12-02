@@ -7,32 +7,33 @@
 //
 
 #import "OKAppDelegate.h"
-#import "OKGameViewController.h"
-#import "OKMainMenuViewController.h"
 #import "OKTask.h"
 
 @implementation OKAppDelegate
+@synthesize mainController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    OKMainMenuViewController *controller = [[OKMainMenuViewController alloc] init];
-    self.window.rootViewController = controller;
+    mainController = [[OKMainMenuViewController alloc] init];
+    self.window.rootViewController = mainController;
     
     [self.window makeKeyAndVisible];    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {}
+-(void)applicationWillResignActive:(UIApplication *)application {}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {}
+-(void)applicationDidEnterBackground:(UIApplication *)application {
+    [mainController pauseGame];
+}
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {}
+-(void)applicationWillEnterForeground:(UIApplication *)application {}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {}
+-(void)applicationDidBecomeActive:(UIApplication *)application {}
 
-- (void)applicationWillTerminate:(UIApplication *)application {}
+-(void)applicationWillTerminate:(UIApplication *)application {}
 
 @end
