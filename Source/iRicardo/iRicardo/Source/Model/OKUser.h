@@ -28,6 +28,7 @@
 -(id)initWithKey:(NSString*)uKey;
 
 -(BOOL)asignTask:(OKTask*)task;
+-(void)pauseUser:(NSNumber*)pause;
 
 @property (nonatomic, assign) id<OKUserDelegate>delegate;
 @property (nonatomic, strong) NSString *key;
@@ -39,11 +40,15 @@
 @property (nonatomic, strong) OKTask *currentTask;
 @property (nonatomic, assign) CGFloat taskProcess;
 @property (nonatomic, strong) NSDate *startTime;
+@property (nonatomic, strong) NSDate *overflowTime;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSTimer *progressTimer;
 @property (nonatomic, assign) BOOL working;
 
 @property (nonatomic, assign) BOOL overwork;
 @property (nonatomic, assign) CGFloat overworkRemaining;
+
+@property (nonatomic, assign) BOOL paused;
+@property (nonatomic, strong) NSDate *pausedTime;
 
 @end

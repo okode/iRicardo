@@ -23,6 +23,9 @@
 @synthesize timer;
 @synthesize progressTimer;
 @synthesize working;
+@synthesize paused;
+@synthesize overflowTime;
+@synthesize pausedTime;
 
 -(id)initWithKey:(NSString*)uKey{
     self = [super init];
@@ -36,6 +39,7 @@
         overwork = NO;
         working = NO;
         overworkRemaining = 0;
+        paused = NO;
         
         pendingTasks = [[NSMutableArray alloc] initWithCapacity:OK_MAX_USER_TASKS];
     }
@@ -84,8 +88,31 @@
                                            selector:@selector(overWorkEnded)
                                            userInfo:nil
                                             repeats:NO];
+    overflowTime = [NSDate date];
     overwork = YES;
     [delegate userOverWork];
+}
+
+-(void)pauseUser:(NSNumber*)pause{
+    BOOL boolPause = [pause boolValue];
+    if(boolPause){
+        pausedTime = [NSDate date];
+        if(overwork)[timer invalidate];
+    }else{
+        if(overwork){
+            NSTimeInterval timeLeft = OVERWORK_TIME - [pausedTime timeIntervalSinceDate:overflowTime];
+            NSLog(@"Quedan %f de los %f",timeLeft,OVERWORK_TIME);
+            timer = [NSTimer scheduledTimerWithTimeInterval:timeLeft
+                                                     target:self
+                                                   selector:@selector(overWorkEnded)
+                                                   userInfo:nil
+                                                    repeats:NO];
+        }else{
+            NSTimeInterval timeElapsed = -[pausedTime timeIntervalSinceNow];
+            startTime = [startTime dateByAddingTimeInterval:timeElapsed];
+        }
+    }
+    paused = boolPause;
 }
 
 -(void)startTasks{
@@ -98,11 +125,6 @@
         taskProcess = ([currentTask type] == [self specialty]) ? EASY_TASK_TIME : HARD_TASK_TIME;
         if([self specialty] == OK_TASK_WONT_FIX) taskProcess = RIC_SOLVING_TIME;
         startTime = [NSDate date];
-        timer = [NSTimer scheduledTimerWithTimeInterval:taskProcess
-                                                 target:self
-                                               selector:@selector(endTask)
-                                               userInfo:nil
-                                                repeats:NO];
         progressTimer = [NSTimer scheduledTimerWithTimeInterval:OK_LOW_COUNTDOWN_TIMER
                                                          target:self
                                                        selector:@selector(taskProgress)
@@ -112,7 +134,12 @@
 }
 
 -(void)taskProgress{
-    [delegate taskProgress:(-[startTime timeIntervalSinceNow])/taskProcess];
+    if(paused) return;
+    CGFloat progress = (-[startTime timeIntervalSinceNow])/taskProcess;
+    [delegate taskProgress:progress];
+    if(progress >= 1.0){
+        [self endTask];
+    }
 }
 
 -(void)endTask{

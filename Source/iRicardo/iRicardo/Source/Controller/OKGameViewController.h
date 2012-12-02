@@ -33,6 +33,7 @@
 @property (nonatomic, strong) NSTimer *gameTimer;
 
 @property (nonatomic, strong) NSDate *taskCreatedTime;
+@property (nonatomic, strong) NSArray *users;
 @property (nonatomic, strong) OKRicView *ricView;
 @property (nonatomic, strong) OKTask *assignTask;
 

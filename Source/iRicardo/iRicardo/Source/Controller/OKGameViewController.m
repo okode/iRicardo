@@ -39,6 +39,7 @@
 @synthesize pause;
 @synthesize pauseView;
 @synthesize pauseButton;
+@synthesize users;
 
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
@@ -110,6 +111,8 @@
     
     ricView = [[OKRicView alloc] initWithDelegate:self onFrame:CGRectMake(0,5,self.view.frame.size.width/2,100)];
     
+    users = [NSArray arrayWithObjects:pjorquera,aquerol,adiaz,dsoro,mpons,vquerol,[ricView user],nil];
+    
     [self.view addSubview:pjorqueraView];
     [self.view addSubview:aquerolView];
     [self.view addSubview:dsoroView];
@@ -156,9 +159,11 @@
         [pauseView addGestureRecognizer:tapRecognizer];
     }
     if(!pause){
+        [users makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
         [self.view addSubview:pauseView];
         pause = YES;
     }else{
+        [users makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
         [pauseView removeFromSuperview];
         pause = NO;
     }
