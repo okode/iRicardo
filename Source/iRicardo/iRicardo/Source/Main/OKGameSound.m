@@ -42,12 +42,13 @@
     [self appendSound:sound key:sound];
 }
 
--(void)appendSound:(NSString*)sound key:(NSString*)key
-{
-    players[key] = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:sound
-                                                                                        withExtension:@"mp3"]
-                                                          error:NULL];
-    [players[key] prepareToPlay];
+-(void)appendSound:(NSString*)sound key:(NSString*)key{
+    [players setObject:[[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle]
+                                                    URLForResource:sound
+                                                     withExtension:@"mp3"]
+                                                             error:NULL]
+                forKey:key];
+    [[players objectForKey:key] prepareToPlay];
 }
 
 -(void)play:(NSString *)sound
@@ -56,12 +57,12 @@
         if((++indexAudioAssign > 3)) indexAudioAssign = 1;
         sound = [NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign];
     }
-    [(AVAudioPlayer*)players[sound] play];
+    [(AVAudioPlayer*)[players objectForKey:sound] play];
 }
 
 -(void)stop:(NSString *)sound
 {
-    [(AVAudioPlayer*)players[sound] stop];
+    [(AVAudioPlayer*)[players objectForKey:sound] stop];
 }
 
 @end
