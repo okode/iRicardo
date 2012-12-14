@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E449C54167B0741001D8A9B /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3E449C53167B0741001D8A9B /* fanfare.mp3 */; };
 		3E4BF9351650329900CCE00C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E4BF9341650329900CCE00C /* Default-568h@2x.png */; };
 		3EC667641660FE7100974613 /* breakblock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EC667571660FE7100974613 /* breakblock.mp3 */; };
 		3EC667651660FE7100974613 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EC667581660FE7100974613 /* coin.mp3 */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E449C53167B0741001D8A9B /* fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fanfare.mp3; sourceTree = "<group>"; };
 		3E4BF9341650329900CCE00C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3EC667571660FE7100974613 /* breakblock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = breakblock.mp3; sourceTree = "<group>"; };
 		3EC667581660FE7100974613 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		3EC667561660FE7100974613 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				3E449C53167B0741001D8A9B /* fanfare.mp3 */,
 				3EC667571660FE7100974613 /* breakblock.mp3 */,
 				3EC667581660FE7100974613 /* coin.mp3 */,
 				3EC667591660FE7100974613 /* flagpole.mp3 */,
@@ -316,6 +319,7 @@
 				3EC6676E1660FE7100974613 /* stomp.mp3 in Resources */,
 				3EC6676F1660FE7100974613 /* vine.mp3 in Resources */,
 				3EC667701660FE7100974613 /* warning.mp3 in Resources */,
+				3E449C54167B0741001D8A9B /* fanfare.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

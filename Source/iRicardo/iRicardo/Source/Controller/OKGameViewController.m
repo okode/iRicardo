@@ -292,6 +292,7 @@
 
 -(void)ricOverWorkAndGameOver{
     gameOver = YES;
+    [sound stop:OK_AUDIO_MUSIC];
     [gameTimer invalidate];
     [userViews makeObjectsPerformSelector:@selector(resetUser)];
     [self createBlockView];
@@ -302,10 +303,6 @@
     [resumeButton addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pauseView];
     
-    
-    [sound stop:OK_AUDIO_MUSIC];
-    [sound play:OK_AUDIO_GAMEOVER];
-    
     if([OKGameProperties isHighScore:points]){
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"High Score!"
                                                           message:@"Submit your name"
@@ -315,10 +312,14 @@
         
         [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
         [message show];
+        [sound play:OK_AUDIO_FANFARE];
+    } else {
+        [sound play:OK_AUDIO_GAMEOVER];
     }
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [sound stop];
     NSString *userName = [[alertView textFieldAtIndex:0] text];
     [OKGameProperties saveHighScore:points withName:userName];
 }

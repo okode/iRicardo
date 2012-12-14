@@ -10,10 +10,29 @@
 
 @interface OKGameSound : NSObject
 
+/**
+ * Play selected sound
+ */
 -(void)play:(NSString*)sound;
+
+/**
+ * Stop selected sound if playing
+ */
 -(void)stop:(NSString*)sound;
 
+/**
+ * Stop all playing sounds
+ */
+-(void)stop;
+
+/**
+ * Pause all playing sounds
+ */
 -(void)pause;
+
+/**
+ * Resume all playing sounds
+ */
 -(void)resume;
 
 @end
