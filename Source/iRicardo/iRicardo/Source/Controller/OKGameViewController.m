@@ -43,47 +43,104 @@
 @synthesize pauseLabel;
 @synthesize resumeButton;
 
+
 -(id)init{
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         [self loadUsers];
         pause = NO;
         
-        timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2,0,self.view.frame.size.width/2,20)];
+        UILabel * iRicardoTitle = [[UILabel alloc] initWithFrame:CGRectMake(16,9,150,26)];
+        [iRicardoTitle setText:[NSString stringWithFormat:@"iRicardo"]];
+        [iRicardoTitle setFont:[UIFont systemFontOfSize:20]];
+        [iRicardoTitle setBackgroundColor:[UIColor clearColor]];
+        [iRicardoTitle setTextColor:[UIColor whiteColor]];
+        iRicardoTitle.shadowColor = [UIColor blackColor];
+        iRicardoTitle.shadowOffset = CGSizeMake(0.0, 1.0);
+        [self.view addSubview:iRicardoTitle];
+        UILabel * subtitleTitle = [[UILabel alloc] initWithFrame:CGRectMake(16,27,150,26)];
+        [subtitleTitle setText:[NSString stringWithFormat:@"Projects Manager"]];
+        [subtitleTitle setFont:[UIFont systemFontOfSize:8.7]];
+        [subtitleTitle setBackgroundColor:[UIColor clearColor]];
+        [subtitleTitle setTextColor:[UIColor orangeColor]];
+        subtitleTitle.shadowColor = [UIColor blackColor];
+        subtitleTitle.shadowOffset = CGSizeMake(0.0, 1.0);
+        [self.view addSubview:subtitleTitle];
+        
+        UILabel * txtTimerLabel = [[UILabel alloc] initWithFrame:CGRectMake(230,21,70,13)];
+        [txtTimerLabel setTextAlignment:UITextAlignmentCenter];
+        [txtTimerLabel setText:[NSString stringWithFormat:@"TASK TIME"]];
+        [txtTimerLabel setFont:[UIFont systemFontOfSize:7]];
+        [txtTimerLabel setBackgroundColor:[UIColor clearColor]];
+        [txtTimerLabel setTextColor:[UIColor whiteColor]];
+        txtTimerLabel.shadowColor = [UIColor blackColor];
+        txtTimerLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        [self.view addSubview:txtTimerLabel];
+        
+        timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(230,36,70,20)];
         [timerLabel setTextAlignment:UITextAlignmentCenter];
         [timerLabel setText:[NSString stringWithFormat:@"%.0f:000",DEFAULT_ASSIGN_TASK_TIME]];
+        [timerLabel setFont:[UIFont systemFontOfSize:13]];
+        [timerLabel setBackgroundColor:[UIColor clearColor]];
+        [timerLabel setTextColor:[UIColor whiteColor]];
         [self.view addSubview:timerLabel];
-        levelLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2,20,self.view.frame.size.width/2,20)];
+        
+        UILabel * txtlevelLabel = [[UILabel alloc] initWithFrame:CGRectMake(173,21,36,13)];
+        [txtlevelLabel setTextAlignment:UITextAlignmentCenter];
+        [txtlevelLabel setText:[NSString stringWithFormat:@"LEVEL"]];
+        [txtlevelLabel setFont:[UIFont systemFontOfSize:7]];
+        [txtlevelLabel setBackgroundColor:[UIColor clearColor]];
+        [txtlevelLabel setTextColor:[UIColor whiteColor]];
+        txtlevelLabel.shadowColor = [UIColor blackColor];
+        txtlevelLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        [self.view addSubview:txtlevelLabel];
+        
+        levelLabel = [[UILabel alloc] initWithFrame:CGRectMake(174,40,34,13)];
         [levelLabel setTextAlignment:UITextAlignmentCenter];
-        [levelLabel setText:[NSString stringWithFormat:@"Level: %d",level]];
+        [levelLabel setText:[NSString stringWithFormat:@"%d",level]];
+        [levelLabel setFont:[UIFont systemFontOfSize:8]];
+        [levelLabel setBackgroundColor:[UIColor clearColor]];
+        [levelLabel setTextColor:[UIColor whiteColor]];
         [self.view addSubview:levelLabel];
         
-        pointsLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2,40,self.view.frame.size.width/2,20)];
+        UILabel * txtPointsLabel = [[UILabel alloc] initWithFrame:CGRectMake(173,61,36,13)];
+        [txtPointsLabel setTextAlignment:UITextAlignmentCenter];
+        [txtPointsLabel setText:[NSString stringWithFormat:@"SCORE"]];
+        [txtPointsLabel setFont:[UIFont systemFontOfSize:7]];
+        [txtPointsLabel setBackgroundColor:[UIColor clearColor]];
+        [txtPointsLabel setTextColor:[UIColor whiteColor]];
+        txtPointsLabel.shadowColor = [UIColor blackColor];
+        txtPointsLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        [self.view addSubview:txtPointsLabel];
+        
+        pointsLabel = [[UILabel alloc] initWithFrame:CGRectMake(174,80,34,13)];
         [pointsLabel setTextAlignment:UITextAlignmentCenter];
-        [pointsLabel setText:[NSString stringWithFormat:@"Points: %d",points]];
+        [pointsLabel setText:[NSString stringWithFormat:@"%d",points]];
+        [pointsLabel setFont:[UIFont systemFontOfSize:8]];
+        [pointsLabel setBackgroundColor:[UIColor clearColor]];
+        [pointsLabel setTextColor:[UIColor whiteColor]];
         [self.view addSubview:pointsLabel];
         
-        currentTaskView = [[UILabel alloc] initWithFrame:CGRectMake(200,60,80,80)];
+        currentTaskView = [[UILabel alloc] initWithFrame:CGRectMake(230,60,70,70)];
         [currentTaskView setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1.0]];
         [currentTaskView.layer setShadowColor:[[UIColor blackColor] CGColor]];
         [currentTaskView.layer setShadowOffset:CGSizeMake(1,2)];
         [currentTaskView.layer setShadowOpacity:0.8];
         
-        currentTaskLabel = [[UILabel alloc] initWithFrame:CGRectMake(5,30,70,20)];
+        currentTaskLabel = [[UILabel alloc] initWithFrame:CGRectMake(5,30,60,20)];
         [currentTaskLabel setAdjustsFontSizeToFitWidth:YES];
         [currentTaskLabel setBackgroundColor:[UIColor clearColor]];
         [currentTaskLabel setTextAlignment:UITextAlignmentCenter];
-        [currentTaskLabel setFont:[UIFont boldSystemFontOfSize:16]];
+        [currentTaskLabel setFont:[UIFont systemFontOfSize:16]];
         [currentTaskView addSubview:currentTaskLabel];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentTaskView.frame.size.width-20,0,20,20)];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(currentTaskView.frame.size.width-25,5,20,20)];
         [imgView setImage:[UIImage imageNamed:@"jira.png"]];
         [currentTaskView addSubview:imgView];
         [self.view addSubview:currentTaskView];
         
-        pauseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [pauseButton setFrame:CGRectMake(2,110,60,35)];
-        [pauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
+        pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [pauseButton setFrame:CGRectMake(171,102,41,32)];
         [pauseButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:pauseButton];
         
@@ -91,7 +148,7 @@
         level = 0;
         gameOver = NO;
         
-        [self.view setBackgroundColor:[UIColor whiteColor]];
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"game_background.png"]]];
         [self setModalPresentationStyle:UIModalPresentationFullScreen];
         [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         
@@ -115,7 +172,7 @@
     OKUserView *vquerolView = [[OKUserView alloc] initWithDelegate:self withUser:vquerol onFrame:CGRectMake(0,360,self.view.frame.size.width/2,100)];
     OKUserView *mponsView = [[OKUserView alloc] initWithDelegate:self withUser:mpons onFrame:CGRectMake(self.view.frame.size.width/2,360,self.view.frame.size.width/2,100)];
     
-    ricView = [[OKRicView alloc] initWithDelegate:self onFrame:CGRectMake(0,5,self.view.frame.size.width/2,100)];
+    ricView = [[OKRicView alloc] initWithDelegate:self onFrame:CGRectMake(0,61,self.view.frame.size.width/2,100)];
     
     userViews = [NSArray arrayWithObjects:pjorqueraView,aquerolView,dsoroView,adiazView,vquerolView,mponsView,ricView,nil];
     
@@ -149,14 +206,13 @@
     gameOver = NO;
     
     [timerLabel setText:[NSString stringWithFormat:@"%.0f:000",DEFAULT_ASSIGN_TASK_TIME]];
-    [levelLabel setText:[NSString stringWithFormat:@"Level: %d",level]];
-    [pointsLabel setText:[NSString stringWithFormat:@"Points: %d",points]];
+    [levelLabel setText:[NSString stringWithFormat:@"%d",level]];
+    [pointsLabel setText:[NSString stringWithFormat:@"%d",points]];
     
     [pauseView removeFromSuperview];
     [self createTask];
     [self restartTimer];
     [sound play:OK_AUDIO_MUSIC];
-    
 }
 
 -(void)createBlockView{
@@ -185,8 +241,8 @@
 -(void)pauseGame{
     [self createBlockView];
     [pauseLabel setText:@"Game Paused"];
-    [pauseLabel setFont:[UIFont boldSystemFontOfSize:40]];
-    [pauseLabel setTextColor:[UIColor colorWithWhite:0.7 alpha:1]];
+    [pauseLabel setFont:[UIFont systemFontOfSize:25]];
+    [pauseLabel setTextColor:[UIColor colorWithWhite:0.9 alpha:1]];
     [resumeButton setTitle:@"Resume game" forState:UIControlStateNormal];
     [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
     [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
@@ -251,7 +307,7 @@
         [UIView animateWithDuration:0.2 animations:^(void){
             [currentTaskView setCenter:ricView.center];
         } completion:^(BOOL finished) {
-            [currentTaskView setFrame:CGRectMake(200,60,80,80)];
+            [currentTaskView setFrame:CGRectMake(230,60,70,70)];
             [self createTask];
             [self restartTimer];
         }];
@@ -274,14 +330,14 @@
         [sound play:OK_AUDIO_ASSIGN_TASK];
         CGFloat assignPoints = (assignTime/DEFAULT_ASSIGN_TASK_TIME*pow(LEVEL_PERCENT_DECREASE,level))*DEFAULT_MAX_POINTS;
         points += floor(assignPoints);
-        [pointsLabel setText:[NSString stringWithFormat:@"Points: %d",points]];
+        [pointsLabel setText:[NSString stringWithFormat:@"%d",points]];
         level = floor(points/UP_LEVEL_POINTS);
-        [levelLabel setText:[NSString stringWithFormat:@"Level: %d",level]];
+        [levelLabel setText:[NSString stringWithFormat:@"%d",level]];
         
         [UIView animateWithDuration:0.2 animations:^(void){
             [currentTaskView setCenter:view.center];
         } completion:^(BOOL finished) {
-            [currentTaskView setFrame:CGRectMake(200,60,80,80)];
+            [currentTaskView setFrame:CGRectMake(230,60,70,70)];
             [self createTask];
             [self restartTimer];
         }];

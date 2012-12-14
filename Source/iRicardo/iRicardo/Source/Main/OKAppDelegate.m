@@ -36,4 +36,28 @@
 
 -(void)applicationWillTerminate:(UIApplication *)application {}
 
+
+@end
+
+
+
+@interface UIFont (OverWriteDefault)
++ (UIFont *)systemFontOfSize:(CGFloat)fontSize;
++ (UIFont *)boldSystemFontOfSize:(CGFloat)fontSize;
++ (UIFont *)italicSystemFontOfSize:(CGFloat)fontSize;
+@end
+
+@implementation UIFont (OverWriteDefault)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
++(UIFont *)systemFontOfSize:(CGFloat)fontSize{
+    return [UIFont fontWithName:@"8BIT WONDER" size:fontSize];
+}
++(UIFont *)boldSystemFontOfSize:(CGFloat)fontSize{
+    return [UIFont fontWithName:@"Helvetica-Bold" size:fontSize];
+}
++(UIFont *)italicSystemFontOfSize:(CGFloat)fontSize{
+    return [UIFont fontWithName:@"8BIT WONDER" size:fontSize];
+}
+#pragma clang diagnostic pop
 @end

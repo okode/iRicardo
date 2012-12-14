@@ -7,6 +7,7 @@
 //
 
 #import "OKUserView.h"
+#import "OKProgressView.h"
 
 @implementation OKUserView
 
@@ -24,25 +25,29 @@
         [self setDelegate:dlg];
         [self setUser:kUser];
         [user setDelegate:self];
-        [self setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
+        //[self setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
         avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(5,5,80,80)];
-        [avatarView setBackgroundColor:[UIColor grayColor]];
+        //[avatarView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.gif", [user key]]]];
         [self addSubview:avatarView];
-        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(90,5,frame.size.width-95,20)];
-        [nameLabel setBackgroundColor:[UIColor lightGrayColor]];
+        nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(92,8,frame.size.width-98,20)];
+        [nameLabel setBackgroundColor:[UIColor clearColor]];
+        [nameLabel setTextColor:[UIColor whiteColor]];
+        [nameLabel setFont:[UIFont systemFontOfSize:8]];
         [nameLabel setText:[user name]];
         [self addSubview:nameLabel];
         
-        tasksLabel = [[UILabel alloc] initWithFrame:CGRectMake(90,30,frame.size.width-95,20)];
-        [tasksLabel setBackgroundColor:[UIColor lightGrayColor]];
-        [tasksLabel setText:@"(0/5)"];
+        tasksLabel = [[UILabel alloc] initWithFrame:CGRectMake(92,29,frame.size.width-98,20)];
+        [tasksLabel setBackgroundColor:[UIColor clearColor]];
+        [tasksLabel setTextColor:[UIColor whiteColor]];
+        [tasksLabel setFont:[UIFont systemFontOfSize:8]];
+        [tasksLabel setText:@"0 / 5"];
         [self addSubview:tasksLabel];
-
-        progress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
-        [progress setFrame:CGRectMake(90,60,frame.size.width-95,5)];
+        
+        progress = [[OKProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+        [progress setFrame:CGRectMake(88,60,frame.size.width-98,20)];
         [self addSubview:progress];
         
-        overworkView = [[UIView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
+        overworkView = [[UIView alloc] initWithFrame:CGRectMake(5,5,frame.size.width-14,frame.size.height-20)];
         [overworkView setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.8]];
         [overworkView setAlpha:0.0];
         [self addSubview:overworkView];
@@ -67,7 +72,7 @@
 
 -(void)resetUser{
     [user resetUser];
-    [tasksLabel setText:@"(0/5)"];
+    [tasksLabel setText:@"0/5"];
     [progress setProgress:0.0];
     [overworkView removeFromSuperview];
 }
@@ -90,20 +95,20 @@
 #pragma mark OKUserDelegate methods
 
 -(void)userStartedATask{
-    [tasksLabel setText:[NSString stringWithFormat:@"(%d/%d)",[user.pendingTasks count],OK_MAX_USER_TASKS]];
+    [tasksLabel setText:[NSString stringWithFormat:@"%d / %d",[user.pendingTasks count],OK_MAX_USER_TASKS]];
 }
 
 -(void)userAssignedToTask{
-    [tasksLabel setText:[NSString stringWithFormat:@"(%d/%d)",[user.pendingTasks count],OK_MAX_USER_TASKS]];
+    [tasksLabel setText:[NSString stringWithFormat:@"%d / %d",[user.pendingTasks count],OK_MAX_USER_TASKS]];
 }
 
 -(void)userEndedATask{
     if([user.pendingTasks count] == 0)
-        [tasksLabel setText:[NSString stringWithFormat:@"(0/%d)",OK_MAX_USER_TASKS]];
+        [tasksLabel setText:[NSString stringWithFormat:@"0 / %d",OK_MAX_USER_TASKS]];
 }
 
 -(void)userOverWork{
-    [tasksLabel setText:[NSString stringWithFormat:@"(%d/%d)",OK_MAX_USER_TASKS,OK_MAX_USER_TASKS]];
+    [tasksLabel setText:[NSString stringWithFormat:@"%d / %d",OK_MAX_USER_TASKS,OK_MAX_USER_TASKS]];
     [self showOverwork:YES];
 }
 
