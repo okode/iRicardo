@@ -17,7 +17,6 @@ Recursos
 - Música de fondo de la aplicación
 - Efectos de sonido para las acciones: (enviar jirazo, usuario saturado, auto-asignación de tarea a Ricardo)
 - Diseño y creación de la página de descarga de la aplicación iRicardo
-- Había pensado también poner un botón fake, en plan "About iRicardo", que cuando la pulses salga una pantalla en negro con el texto: "We are sorry, but you've been..." y acto seguido saliera el video de "Never gonna give you up": RICK ROLLED!
 
 Desarrollo
 ----------
