@@ -59,8 +59,8 @@
         iRicardoTitle.shadowOffset = CGSizeMake(0.0, 1.0);
         [self.view addSubview:iRicardoTitle];
         UILabel * subtitleTitle = [[UILabel alloc] initWithFrame:CGRectMake(16,27,150,26)];
-        [subtitleTitle setText:[NSString stringWithFormat:@"Projects Manager"]];
-        [subtitleTitle setFont:[UIFont systemFontOfSize:8.7]];
+        [subtitleTitle setText:[NSString stringWithFormat:@"Project Manager"]];
+        [subtitleTitle setFont:[UIFont systemFontOfSize:9.2]];
         [subtitleTitle setBackgroundColor:[UIColor clearColor]];
         [subtitleTitle setTextColor:[UIColor orangeColor]];
         subtitleTitle.shadowColor = [UIColor blackColor];
