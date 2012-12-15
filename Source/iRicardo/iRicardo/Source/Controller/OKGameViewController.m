@@ -52,7 +52,7 @@
         pause = NO;
         
         assignTime = DEFAULT_ASSIGN_TASK_TIME;
-        level = 0;
+        level = 6;
         points = level * UP_LEVEL_POINTS;
         gameOver = NO;
         
