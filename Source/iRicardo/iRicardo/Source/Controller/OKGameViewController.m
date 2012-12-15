@@ -218,7 +218,7 @@
 -(void)createBlockView{
     if(pauseView == nil){
         pauseView = [[UIView alloc] initWithFrame:self.view.bounds];
-        [pauseView setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.75]];
+        [pauseView setBackgroundColor:[UIColor colorWithWhite:0 alpha:1]];
         pauseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,self.view.bounds.size.height/4,self.view.bounds.size.width,self.view.bounds.size.height/4)];
         [pauseLabel setBackgroundColor:[UIColor clearColor]];
         [pauseLabel setTextAlignment:UITextAlignmentCenter];
@@ -226,13 +226,15 @@
         [pauseLabel setShadowColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
         [pauseView addSubview:pauseLabel];
         
-        resumeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [resumeButton setFrame:CGRectMake((self.view.bounds.size.width-200)/2,self.view.bounds.size.height/2,200,40)];
         [pauseView addSubview:resumeButton];
         
-        UIButton *quitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton *quitButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [quitButton setFrame:CGRectMake((self.view.bounds.size.width-200)/2,self.view.bounds.size.height/2+60,200,40)];
         [quitButton setTitle:@"Return to Main" forState:UIControlStateNormal];
+        quitButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        quitButton.titleLabel.textColor = [UIColor orangeColor];
         [quitButton addTarget:self action:@selector(quitGame) forControlEvents:UIControlEventTouchUpInside];
         [pauseView addSubview:quitButton];
     }
@@ -244,6 +246,9 @@
     [pauseLabel setFont:[UIFont systemFontOfSize:25]];
     [pauseLabel setTextColor:[UIColor colorWithWhite:0.9 alpha:1]];
     [resumeButton setTitle:@"Resume game" forState:UIControlStateNormal];
+    resumeButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    resumeButton.titleLabel.textColor = [UIColor orangeColor];
+
     [resumeButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
     [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:YES]];
     [self.view addSubview:pauseView];
@@ -353,9 +358,12 @@
     [userViews makeObjectsPerformSelector:@selector(resetUser)];
     [self createBlockView];
     [pauseLabel setText:@"GAME OVER"];
-    [pauseLabel setFont:[UIFont boldSystemFontOfSize:50]];
+    [pauseLabel setFont:[UIFont systemFontOfSize:25]];
     [pauseLabel setTextColor:[UIColor redColor]];
     [resumeButton setTitle:@"Restart game" forState:UIControlStateNormal];
+    resumeButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    resumeButton.titleLabel.textColor = [UIColor orangeColor];
+
     [resumeButton addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pauseView];
     

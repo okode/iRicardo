@@ -34,27 +34,79 @@
     self = [super init];
     if(self){
         
-        firstScoreName = [[UILabel alloc] initWithFrame:CGRectMake(20,120,80,20)];
-        firstScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(150,120,60,20)];
-        secondScoreName = [[UILabel alloc] initWithFrame:CGRectMake(20,150,80,20)];
-        secondScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(150,150,60,20)];
-        thirdScoreName = [[UILabel alloc] initWithFrame:CGRectMake(20,180,80,20)];
-        thirdScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(150,180,80,20)];
-        fourthScoreName = [[UILabel alloc] initWithFrame:CGRectMake(20,210,80,20)];
-        fourthScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(150,210,80,20)];
-        fifthScoreName = [[UILabel alloc] initWithFrame:CGRectMake(20,240,80,20)];
-        fifthScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(150,240,80,20)];
+        firstScoreName = [[UILabel alloc] initWithFrame:CGRectMake(40,162,145,20)];
+        firstScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(168,162,110,20)];
+        secondScoreName = [[UILabel alloc] initWithFrame:CGRectMake(40,192,145,20)];
+        secondScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(168,192,110,20)];
+        thirdScoreName = [[UILabel alloc] initWithFrame:CGRectMake(40,222,145,20)];
+        thirdScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(168,222,110,20)];
+        fourthScoreName = [[UILabel alloc] initWithFrame:CGRectMake(40,252,145,20)];
+        fourthScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(168,252,110,20)];
+        fifthScoreName = [[UILabel alloc] initWithFrame:CGRectMake(40,282,145,20)];
+        fifthScorePoints = [[UILabel alloc] initWithFrame:CGRectMake(168,282,110,20)];
         
-        removeScoresButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [removeScoresButton setFrame:CGRectMake(20,300,200,32)];
-        [removeScoresButton setTitle:@"Remove High Scores" forState:UIControlStateNormal];
+        [firstScoreName setTextColor:[UIColor whiteColor]];
+        [firstScoreName setBackgroundColor:[UIColor clearColor]];
+        [firstScoreName setFont:[UIFont systemFontOfSize:9]];
+        
+        [firstScorePoints setTextAlignment:NSTextAlignmentRight];
+        [firstScorePoints setTextColor:[UIColor whiteColor]];
+        [firstScorePoints setBackgroundColor:[UIColor clearColor]];
+        [firstScorePoints setFont:[UIFont systemFontOfSize:9]];
+        
+        [secondScoreName setTextColor:[UIColor whiteColor]];
+        [secondScoreName setBackgroundColor:[UIColor clearColor]];
+        [secondScoreName setFont:[UIFont systemFontOfSize:9]];
+        
+        [secondScorePoints setTextAlignment:NSTextAlignmentRight];
+        [secondScorePoints setTextColor:[UIColor whiteColor]];
+        [secondScorePoints setBackgroundColor:[UIColor clearColor]];
+        [secondScorePoints setFont:[UIFont systemFontOfSize:9]];
+        
+        [thirdScoreName setTextColor:[UIColor whiteColor]];
+        [thirdScoreName setBackgroundColor:[UIColor clearColor]];
+        [thirdScoreName setFont:[UIFont systemFontOfSize:9]];
+        
+        [thirdScorePoints setTextAlignment:NSTextAlignmentRight];
+        [thirdScorePoints setTextColor:[UIColor whiteColor]];
+        [thirdScorePoints setBackgroundColor:[UIColor clearColor]];
+        [thirdScorePoints setFont:[UIFont systemFontOfSize:9]];
+
+        [fourthScoreName setTextColor:[UIColor whiteColor]];
+        [fourthScoreName setBackgroundColor:[UIColor clearColor]];
+        [fourthScoreName setFont:[UIFont systemFontOfSize:9]];
+
+        [fourthScorePoints setTextAlignment:NSTextAlignmentRight];
+        [fourthScorePoints setTextColor:[UIColor whiteColor]];
+        [fourthScorePoints setBackgroundColor:[UIColor clearColor]];
+        [fourthScorePoints setFont:[UIFont systemFontOfSize:9]];
+
+        [fifthScoreName setTextColor:[UIColor whiteColor]];
+        [fifthScoreName setBackgroundColor:[UIColor clearColor]];
+        [fifthScoreName setFont:[UIFont systemFontOfSize:9]];
+
+        [fifthScorePoints setTextAlignment:NSTextAlignmentRight];
+        [fifthScorePoints setTextColor:[UIColor whiteColor]];
+        [fifthScorePoints setBackgroundColor:[UIColor clearColor]];
+        [fifthScorePoints setFont:[UIFont systemFontOfSize:9]];
+
+        
+        removeScoresButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [removeScoresButton setFrame:CGRectMake(40,343,240,32)];
+        [removeScoresButton setTitle:@"Remove Scores" forState:UIControlStateNormal];
         [removeScoresButton addTarget:self action:@selector(removeScoresAlert) forControlEvents:UIControlEventTouchUpInside];
+        [removeScoresButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [removeScoresButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        removeScoresButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [self.view addSubview:removeScoresButton];
         
-        goBackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [goBackButton setFrame:CGRectMake(20,340,200,32)];
+        goBackButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [goBackButton setFrame:CGRectMake(40,406,240,32)];
         [goBackButton setTitle:@"Return to Main" forState:UIControlStateNormal];
         [goBackButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+        [goBackButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [goBackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        goBackButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [self.view addSubview:goBackButton];
 
         
@@ -72,6 +124,33 @@
         
         [self setModalPresentationStyle:UIModalPresentationFullScreen];
         [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        
+        UILabel * iRicardoTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,19,300,50)];
+        [iRicardoTitle setText:[NSString stringWithFormat:@"iRicardo"]];
+        [iRicardoTitle setFont:[UIFont systemFontOfSize:40]];
+        [iRicardoTitle setBackgroundColor:[UIColor clearColor]];
+        [iRicardoTitle setTextColor:[UIColor whiteColor]];
+        iRicardoTitle.shadowColor = [UIColor blackColor];
+        iRicardoTitle.shadowOffset = CGSizeMake(0.0, 3.0);
+        [self.view addSubview:iRicardoTitle];
+        UILabel * subtitleTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,64,300,26)];
+        [subtitleTitle setText:[NSString stringWithFormat:@"Project Manager"]];
+        [subtitleTitle setFont:[UIFont systemFontOfSize:18.4]];
+        [subtitleTitle setBackgroundColor:[UIColor clearColor]];
+        [subtitleTitle setTextColor:[UIColor orangeColor]];
+        subtitleTitle.shadowColor = [UIColor blackColor];
+        subtitleTitle.shadowOffset = CGSizeMake(0.0, 3.0);
+        [self.view addSubview:subtitleTitle];
+        UILabel * highScoresTitle = [[UILabel alloc] initWithFrame:CGRectMake(65,117,296,26)];
+        [highScoresTitle setText:[NSString stringWithFormat:@"High Scores"]];
+        [highScoresTitle setFont:[UIFont systemFontOfSize:18.4]];
+        [highScoresTitle setBackgroundColor:[UIColor clearColor]];
+        [highScoresTitle setTextColor:[UIColor lightGrayColor]];
+        highScoresTitle.shadowColor = [UIColor blackColor];
+        highScoresTitle.shadowOffset = CGSizeMake(0.0, 3.0);
+        [self.view addSubview:highScoresTitle];
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"scores_background.png"]]];
     }
     return self;
 }
