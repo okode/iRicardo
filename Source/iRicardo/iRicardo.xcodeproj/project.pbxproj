@@ -41,6 +41,9 @@
 		88B3B7D4167C90AD000894B9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B3B7D3167C90AD000894B9 /* MediaPlayer.framework */; };
 		88B3B7D6167C913E000894B9 /* Clip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7D5167C913D000894B9 /* Clip.mov */; };
 		88B3B7D9167C92D6000894B9 /* OKMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7D8167C92D6000894B9 /* OKMovieViewController.m */; };
+		88B3B7DC167CC091000894B9 /* howto.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7DA167CC090000894B9 /* howto.png */; };
+		88B3B7DD167CC091000894B9 /* howto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7DB167CC091000894B9 /* howto@2x.png */; };
+		88B3B7E2167CC0D4000894B9 /* OKHowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7E1167CC0D3000894B9 /* OKHowToViewController.m */; };
 		88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB331632A4F600935CDF /* UIKit.framework */; };
 		88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB351632A4F600935CDF /* Foundation.framework */; };
 		88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB371632A4F600935CDF /* CoreGraphics.framework */; };
@@ -99,6 +102,10 @@
 		88B3B7D5167C913D000894B9 /* Clip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Clip.mov; sourceTree = "<group>"; };
 		88B3B7D7167C92D6000894B9 /* OKMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKMovieViewController.h; sourceTree = "<group>"; };
 		88B3B7D8167C92D6000894B9 /* OKMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMovieViewController.m; sourceTree = "<group>"; };
+		88B3B7DA167CC090000894B9 /* howto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto.png; sourceTree = "<group>"; };
+		88B3B7DB167CC091000894B9 /* howto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto@2x.png"; sourceTree = "<group>"; };
+		88B3B7E0167CC0D3000894B9 /* OKHowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKHowToViewController.h; sourceTree = "<group>"; };
+		88B3B7E1167CC0D3000894B9 /* OKHowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKHowToViewController.m; sourceTree = "<group>"; };
 		88D3BB2F1632A4F600935CDF /* iRicardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRicardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D3BB331632A4F600935CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88D3BB351632A4F600935CDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +168,36 @@
 				3EC667631660FE7100974613 /* warning.mp3 */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		88B3B7DE167CC094000894B9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				88B3B7DA167CC090000894B9 /* howto.png */,
+				88B3B7DB167CC091000894B9 /* howto@2x.png */,
+				88B3B7CF167C8F50000894B9 /* alert-bg.png */,
+				88B3B7C9167C871D000894B9 /* alert-bg@2x.png */,
+				88B3B7D0167C8F50000894B9 /* alert-button-normal.png */,
+				88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */,
+				1258061A167BA03E00E66C7A /* progress-bg.png */,
+				1258061C167BA04500E66C7A /* progress-bg@2x.png */,
+				1258061E167BA04A00E66C7A /* progress-fill.png */,
+				12580620167BA04E00E66C7A /* progress-fill@2x.png */,
+				12864C4B16792CF300277842 /* game_background@2x.png */,
+				88D3BB6916331D5900935CDF /* jira.png */,
+				88D3BB6A16331D5900935CDF /* jira@2x.png */,
+				88D3BB6B16331D5900935CDF /* logo_jira_blue.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		88B3B7DF167CC0AE000894B9 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				88B3B7D5167C913D000894B9 /* Clip.mov */,
+				12580622167BB13A00E66C7A /* 8-BIT WONDER.TTF */,
+			);
+			name = others;
 			sourceTree = "<group>";
 		};
 		88D3BB241632A4F500935CDF = {
@@ -236,6 +273,8 @@
 				88146FFA166BC3B0007553FE /* OKScoresViewController.m */,
 				88B3B7D7167C92D6000894B9 /* OKMovieViewController.h */,
 				88B3B7D8167C92D6000894B9 /* OKMovieViewController.m */,
+				88B3B7E0167CC0D3000894B9 /* OKHowToViewController.h */,
+				88B3B7E1167CC0D3000894B9 /* OKHowToViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,21 +321,9 @@
 		88D3BB6816331D5900935CDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				88B3B7D5167C913D000894B9 /* Clip.mov */,
-				88B3B7CF167C8F50000894B9 /* alert-bg.png */,
-				88B3B7C9167C871D000894B9 /* alert-bg@2x.png */,
-				88B3B7D0167C8F50000894B9 /* alert-button-normal.png */,
-				88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */,
-				12580622167BB13A00E66C7A /* 8-BIT WONDER.TTF */,
-				1258061A167BA03E00E66C7A /* progress-bg.png */,
-				1258061C167BA04500E66C7A /* progress-bg@2x.png */,
-				1258061E167BA04A00E66C7A /* progress-fill.png */,
-				12580620167BA04E00E66C7A /* progress-fill@2x.png */,
-				12864C4B16792CF300277842 /* game_background@2x.png */,
+				88B3B7DF167CC0AE000894B9 /* others */,
+				88B3B7DE167CC094000894B9 /* images */,
 				3EC667561660FE7100974613 /* sound */,
-				88D3BB6916331D5900935CDF /* jira.png */,
-				88D3BB6A16331D5900935CDF /* jira@2x.png */,
-				88D3BB6B16331D5900935CDF /* logo_jira_blue.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -383,6 +410,8 @@
 				88B3B7D1167C8F50000894B9 /* alert-bg.png in Resources */,
 				88B3B7D2167C8F50000894B9 /* alert-button-normal.png in Resources */,
 				88B3B7D6167C913E000894B9 /* Clip.mov in Resources */,
+				88B3B7DC167CC091000894B9 /* howto.png in Resources */,
+				88B3B7DD167CC091000894B9 /* howto@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +436,7 @@
 				88146FFB166BC3B0007553FE /* OKScoresViewController.m in Sources */,
 				12580617167BA02B00E66C7A /* OKProgressView.m in Sources */,
 				88B3B7D9167C92D6000894B9 /* OKMovieViewController.m in Sources */,
+				88B3B7E2167CC0D4000894B9 /* OKHowToViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,7 @@
 @synthesize gameController;
 @synthesize scoresController;
 @synthesize movieController;
+@synthesize howtoController;
 
 -(id)init{
     self = [super init];
@@ -30,6 +31,7 @@
         UIButton *howToButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [howToButton setTitle:@"How to play" forState:UIControlStateNormal];
         [howToButton setFrame:CGRectMake(40,160,240,32)];
+        [howToButton addTarget:self action:@selector(showHowTo) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:howToButton];
         UIButton *highScoresButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [highScoresButton setTitle:@"High scores" forState:UIControlStateNormal];
@@ -75,6 +77,13 @@
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     movieController = [[OKMovieViewController alloc] initWithContentURL:fileURL];
     [self presentViewController:movieController animated:YES completion:nil];
+}
+
+-(void)showHowTo{
+    if(howtoController == nil){
+        howtoController = [[OKHowToViewController alloc] init];
+    }
+    [self presentViewController:howtoController animated:YES completion:nil];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
