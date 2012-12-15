@@ -71,6 +71,9 @@
     [user pauseUser:pause];
 }
 
+-(void)setLevel:(NSNumber*)level{
+    [user setLevel:[level integerValue]];
+}
 
 #pragma mark OKUserDelegate methods
 

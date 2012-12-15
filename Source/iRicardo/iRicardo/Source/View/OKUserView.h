@@ -23,6 +23,7 @@
 -(void)pauseUser:(NSNumber*)pause;
 -(void)removeUser;
 -(void)resetUser;
+-(void)setLevel:(NSNumber*)level;
 
 @property (nonatomic, strong) id<OKUserViewDelegate> delegate;
 @property (nonatomic, strong) OKUser *user;

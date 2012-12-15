@@ -28,10 +28,12 @@
 
 #define RIC_SOLVING_TIME            30.0
 #define OVERWORK_TIME               20.0
-#define HARD_TASK_TIME              12.0
+#define HARD_TASK_TIME              16.0
 #define EASY_TASK_TIME              8.0
-#define DEFAULT_ASSIGN_TASK_TIME    4.0
-#define LEVEL_PERCENT_DECREASE      0.95
+#define DEFAULT_ASSIGN_TASK_TIME    3.0
+#define LEVEL_PERCENT_DECREASE      0.85
+#define LEVEL_SECONDS_INCREASE      2
+#define LEVEL_POINTS_INCREASE       5.0
 #define DEFAULT_MAX_POINTS          10.0
 #define UP_LEVEL_POINTS             250.0
 

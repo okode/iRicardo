@@ -27,6 +27,8 @@
 @synthesize overflowTime;
 @synthesize pausedTime;
 
+@synthesize level;
+
 -(id)initWithKey:(NSString*)uKey{
     self = [super init];
     if(self){
@@ -36,6 +38,7 @@
         specialty = [[properties objectForKey:OK_USER_PARAM_SPECIALTY] intValue];
         
         pendingTasks = 0;
+        level = 0;
         overwork = NO;
         working = NO;
         overworkRemaining = 0;
@@ -131,6 +134,7 @@
         working = YES;
         [delegate userStartedATask];
         taskProcess = ([currentTask type] == [self specialty]) ? EASY_TASK_TIME : HARD_TASK_TIME;
+        taskProcess += level * LEVEL_SECONDS_INCREASE;
         if([self specialty] == OK_TASK_WONT_FIX) taskProcess = RIC_SOLVING_TIME;
         startTime = [NSDate date];
         if([progressTimer isValid]){

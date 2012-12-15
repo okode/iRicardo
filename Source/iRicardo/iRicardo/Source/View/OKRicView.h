@@ -21,6 +21,7 @@
 -(void)removeUser;
 -(void)resetUser;
 -(void)pauseUser:(NSNumber*)pause;
+-(void)setLevel:(NSNumber*)level;
 
 @property (nonatomic, strong) id<OKRicViewDelegate> delegate;
 @property (nonatomic, strong) OKUser *user;

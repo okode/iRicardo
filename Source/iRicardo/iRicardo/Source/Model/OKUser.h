@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) OKJiraType specialty;
 
+@property (nonatomic, assign) NSInteger level;
 
 @property (nonatomic, strong) NSMutableArray *pendingTasks;
 @property (nonatomic, strong) OKTask *currentTask;

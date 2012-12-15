@@ -74,7 +74,7 @@
     [user resetUser];
     [tasksLabel setText:@"0/5"];
     [progress setProgress:0.0];
-    [overworkView removeFromSuperview];
+    [overworkView setAlpha:0.0];
 }
 
 -(void)pauseUser:(NSNumber*)pause{
@@ -89,6 +89,10 @@
 -(void)showOverwork:(BOOL)show {
     CGFloat alpha = (show) ? 1.0 : 0.0;
     [overworkView setAlpha:alpha];
+}
+
+-(void)setLevel:(NSNumber*)level{
+    [user setLevel:[level integerValue]];
 }
 
 

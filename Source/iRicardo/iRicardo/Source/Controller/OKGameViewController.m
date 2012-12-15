@@ -51,6 +51,11 @@
         [self loadUsers];
         pause = NO;
         
+        assignTime = DEFAULT_ASSIGN_TASK_TIME;
+        level = 0;
+        points = level * UP_LEVEL_POINTS;
+        gameOver = NO;
+        
         UILabel * iRicardoTitle = [[UILabel alloc] initWithFrame:CGRectMake(16,9,150,26)];
         [iRicardoTitle setText:[NSString stringWithFormat:@"iRicardo"]];
         [iRicardoTitle setFont:[UIFont systemFontOfSize:20]];
@@ -145,9 +150,7 @@
         [pauseButton addTarget:self action:@selector(togglePause) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:pauseButton];
         
-        assignTime = DEFAULT_ASSIGN_TASK_TIME;
-        level = 0;
-        gameOver = NO;
+        
         
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"game_background.png"]]];
         [self setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -203,7 +206,7 @@
 -(void)restartGame{
     assignTime = DEFAULT_ASSIGN_TASK_TIME;
     level = 0;
-    points = 0;
+    points = level * UP_LEVEL_POINTS;
     gameOver = NO;
     
     [timerLabel setText:[NSString stringWithFormat:@"%.0f:000",DEFAULT_ASSIGN_TASK_TIME]];
@@ -336,8 +339,13 @@
         [sound play:OK_AUDIO_ASSIGN_TASK];
         CGFloat assignPoints = (assignTime/DEFAULT_ASSIGN_TASK_TIME*pow(LEVEL_PERCENT_DECREASE,level))*DEFAULT_MAX_POINTS;
         points += floor(assignPoints);
+        points += level*LEVEL_POINTS_INCREASE;
         [pointsLabel setText:[NSString stringWithFormat:@"%d",points]];
+        NSInteger previousLevel = level;
         level = floor(points/UP_LEVEL_POINTS);
+        if(level != previousLevel){
+            [userViews makeObjectsPerformSelector:@selector(pauseUser:) withObject:[NSNumber numberWithBool:NO]];
+        }
         [levelLabel setText:[NSString stringWithFormat:@"%d",level]];
         
         [UIView animateWithDuration:0.2 animations:^(void){
