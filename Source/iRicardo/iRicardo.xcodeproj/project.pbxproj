@@ -33,6 +33,7 @@
 		3EC6676F1660FE7100974613 /* vine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EC667621660FE7100974613 /* vine.mp3 */; };
 		3EC667701660FE7100974613 /* warning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EC667631660FE7100974613 /* warning.mp3 */; };
 		3EC667731660FE9400974613 /* OKGameSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC667721660FE9400974613 /* OKGameSound.m */; };
+		3EFC10AB167CE0C2003B6104 /* intro in Resources */ = {isa = PBXBuildFile; fileRef = 3EFC10AA167CE0C2003B6104 /* intro */; };
 		3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFFBF10165ED24E005A448F /* AVFoundation.framework */; };
 		88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FF6166B91F3007553FE /* OKMainMenuViewController.m */; };
 		88146FFB166BC3B0007553FE /* OKScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FFA166BC3B0007553FE /* OKScoresViewController.m */; };
@@ -93,6 +94,7 @@
 		3EC667631660FE7100974613 /* warning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = warning.mp3; sourceTree = "<group>"; };
 		3EC667711660FE9400974613 /* OKGameSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKGameSound.h; sourceTree = "<group>"; };
 		3EC667721660FE9400974613 /* OKGameSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKGameSound.m; sourceTree = "<group>"; };
+		3EFC10AA167CE0C2003B6104 /* intro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = intro; sourceTree = "<group>"; };
 		3EFFBF10165ED24E005A448F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		88146FF5166B91F3007553FE /* OKMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKMainMenuViewController.h; sourceTree = "<group>"; };
 		88146FF6166B91F3007553FE /* OKMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMainMenuViewController.m; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 		88D3BB6816331D5900935CDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3EFC10AA167CE0C2003B6104 /* intro */,
 				12580622167BB13A00E66C7A /* 8-BIT WONDER.TTF */,
 				1258061A167BA03E00E66C7A /* progress-bg.png */,
 				1258061C167BA04500E66C7A /* progress-bg@2x.png */,
@@ -430,6 +433,7 @@
 				88B3B7D6167C913E000894B9 /* Clip.mov in Resources */,
 				88B3B7DC167CC091000894B9 /* howto.png in Resources */,
 				88B3B7DD167CC091000894B9 /* howto@2x.png in Resources */,
+				3EFC10AB167CE0C2003B6104 /* intro in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
