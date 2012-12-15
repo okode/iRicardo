@@ -7,6 +7,7 @@
 //
 
 #import "OKGameViewController.h"
+#import "OKAlertView.h"
 #import "OKUserView.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -360,7 +361,7 @@
     [self.view addSubview:pauseView];
     
     if([OKGameProperties isHighScore:points]){
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"High Score!"
+        OKAlertView *message = [[OKAlertView alloc] initWithTitle:@"High Score!"
                                                           message:@"Submit your name"
                                                          delegate:self
                                                 cancelButtonTitle:@"Submit"

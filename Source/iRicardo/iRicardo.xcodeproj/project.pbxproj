@@ -33,6 +33,11 @@
 		3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFFBF10165ED24E005A448F /* AVFoundation.framework */; };
 		88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FF6166B91F3007553FE /* OKMainMenuViewController.m */; };
 		88146FFB166BC3B0007553FE /* OKScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FFA166BC3B0007553FE /* OKScoresViewController.m */; };
+		88B3B7C8167C84B3000894B9 /* OKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7C6167C8460000894B9 /* OKAlertView.m */; };
+		88B3B7CA167C871D000894B9 /* alert-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7C9167C871D000894B9 /* alert-bg@2x.png */; };
+		88B3B7CD167C8978000894B9 /* alert-button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */; };
+		88B3B7D1167C8F50000894B9 /* alert-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7CF167C8F50000894B9 /* alert-bg.png */; };
+		88B3B7D2167C8F50000894B9 /* alert-button-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7D0167C8F50000894B9 /* alert-button-normal.png */; };
 		88D3BB341632A4F600935CDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB331632A4F600935CDF /* UIKit.framework */; };
 		88D3BB361632A4F600935CDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB351632A4F600935CDF /* Foundation.framework */; };
 		88D3BB381632A4F600935CDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BB371632A4F600935CDF /* CoreGraphics.framework */; };
@@ -81,6 +86,12 @@
 		88146FF6166B91F3007553FE /* OKMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMainMenuViewController.m; sourceTree = "<group>"; };
 		88146FF9166BC3B0007553FE /* OKScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKScoresViewController.h; sourceTree = "<group>"; };
 		88146FFA166BC3B0007553FE /* OKScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKScoresViewController.m; sourceTree = "<group>"; };
+		88B3B7C5167C8460000894B9 /* OKAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKAlertView.h; sourceTree = "<group>"; };
+		88B3B7C6167C8460000894B9 /* OKAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKAlertView.m; sourceTree = "<group>"; };
+		88B3B7C9167C871D000894B9 /* alert-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg@2x.png"; sourceTree = "<group>"; };
+		88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-button-normal@2x.png"; sourceTree = "<group>"; };
+		88B3B7CF167C8F50000894B9 /* alert-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg.png"; sourceTree = "<group>"; };
+		88B3B7D0167C8F50000894B9 /* alert-button-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-button-normal.png"; sourceTree = "<group>"; };
 		88D3BB2F1632A4F600935CDF /* iRicardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRicardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D3BB331632A4F600935CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88D3BB351632A4F600935CDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +256,8 @@
 		88D3BB501632A55A00935CDF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88B3B7C5167C8460000894B9 /* OKAlertView.h */,
+				88B3B7C6167C8460000894B9 /* OKAlertView.m */,
 				12580619167BA03200E66C7A /* OKProgressView.h */,
 				12580616167BA02B00E66C7A /* OKProgressView.m */,
 				88D3BB521632A58300935CDF /* OKUserView.h */,
@@ -258,6 +271,10 @@
 		88D3BB6816331D5900935CDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				88B3B7CF167C8F50000894B9 /* alert-bg.png */,
+				88B3B7C9167C871D000894B9 /* alert-bg@2x.png */,
+				88B3B7D0167C8F50000894B9 /* alert-button-normal.png */,
+				88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */,
 				12580622167BB13A00E66C7A /* 8-BIT WONDER.TTF */,
 				1258061A167BA03E00E66C7A /* progress-bg.png */,
 				1258061C167BA04500E66C7A /* progress-bg@2x.png */,
@@ -349,6 +366,10 @@
 				1258061F167BA04A00E66C7A /* progress-fill.png in Resources */,
 				12580621167BA04E00E66C7A /* progress-fill@2x.png in Resources */,
 				1263C99E167BEB06008211B1 /* fanfare.mp3 in Resources */,
+				88B3B7CA167C871D000894B9 /* alert-bg@2x.png in Resources */,
+				88B3B7CD167C8978000894B9 /* alert-button-normal@2x.png in Resources */,
+				88B3B7D1167C8F50000894B9 /* alert-bg.png in Resources */,
+				88B3B7D2167C8F50000894B9 /* alert-button-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B3B7C8167C84B3000894B9 /* OKAlertView.m in Sources */,
 				88D3BB401632A4F600935CDF /* main.m in Sources */,
 				88D3BB511632A55A00935CDF /* OKAppDelegate.m in Sources */,
 				88D3BB541632A58300935CDF /* OKUserView.m in Sources */,
