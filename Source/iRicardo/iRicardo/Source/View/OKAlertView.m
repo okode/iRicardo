@@ -32,6 +32,7 @@
             [cancelCustomButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];
             [cancelCustomButton setTitle:otherButtonTitles forState:UIControlStateNormal];
             [cancelCustomButton addTarget:self action:@selector(okButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+            [customOkButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
             [cancelCustomButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
             [self addSubview:cancelCustomButton];
         }else{
@@ -72,8 +73,6 @@
     UITextField *textField = [self textFieldAtIndex:0];
     [textField setTextAlignment:UITextAlignmentCenter];
     [textField setBorderStyle:UITextBorderStyleNone];
-    //TODO: Customize textField properties
-    //[textField setFont:[UIFont boldSystemFontOfSize:20]];
 }
 
 -(void)okButtonPressed{
@@ -83,6 +82,15 @@
             [dlg alertView:self clickedButtonAtIndex:1];
     }
     [self dismissWithClickedButtonIndex:1 animated:YES];
+}
+
+-(void)cancelButtonPressed{
+    if(self.delegate){
+        id<UIAlertViewDelegate>dlg = self.delegate;
+        if([dlg respondsToSelector:@selector(alertView:clickedButtonAtIndex:)])
+            [dlg alertView:self clickedButtonAtIndex:0];
+    }
+    [self dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 @end

@@ -21,8 +21,6 @@ Recursos
 Desarrollo
 ----------
 
-- Pantalla de "Cómo jugar"
-- Pantalla de "About"
 - Aplicar diseño final de la aplicación, imágenes y sonidos
 - Adaptar la aplicación para iPhone 5.
 
