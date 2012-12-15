@@ -7,6 +7,7 @@
 //
 
 #import "OKMainMenuViewController.h"
+#import <MediaPlayer/MediaPlayer.h>  
 
 @interface OKMainMenuViewController ()
 
@@ -16,6 +17,7 @@
 
 @synthesize gameController;
 @synthesize scoresController;
+@synthesize movieController;
 
 -(id)init{
     self = [super init];
@@ -36,6 +38,7 @@
         [self.view addSubview:highScoresButton];
         UIButton *aboutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [aboutButton setTitle:@"About iRicardo" forState:UIControlStateNormal];
+        [aboutButton addTarget:self action:@selector(showAbout) forControlEvents:UIControlEventTouchUpInside];
         [aboutButton setFrame:CGRectMake(40,240,240,32)];
         [self.view addSubview:aboutButton];
     }
@@ -67,8 +70,19 @@
     }
 }
 
+-(void)showAbout{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"Clip" ofType:@"mov"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filepath];
+    movieController = [[OKMovieViewController alloc] initWithContentURL:fileURL];
+    [self presentViewController:movieController animated:YES completion:nil];
+}
+
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

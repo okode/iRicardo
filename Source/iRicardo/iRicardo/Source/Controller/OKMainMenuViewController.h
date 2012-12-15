@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OKGameViewController.h"
 #import "OKScoresViewController.h"
+#import "OKMovieViewController.h"
 
 @interface OKMainMenuViewController : UIViewController
 
@@ -16,5 +17,6 @@
 
 @property (nonatomic, strong) OKGameViewController *gameController;
 @property (nonatomic, strong) OKScoresViewController *scoresController;
+@property (nonatomic, strong) OKMovieViewController *movieController;
 
 @end
