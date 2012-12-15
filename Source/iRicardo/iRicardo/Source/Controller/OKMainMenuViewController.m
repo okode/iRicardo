@@ -7,6 +7,7 @@
 //
 
 #import "OKMainMenuViewController.h"
+#import <MediaPlayer/MediaPlayer.h>  
 
 @interface OKMainMenuViewController ()
 
@@ -16,6 +17,8 @@
 
 @synthesize gameController;
 @synthesize scoresController;
+@synthesize movieController;
+@synthesize howtoController;
 
 -(id)init{
     self = [super init];
@@ -32,6 +35,7 @@
         UIButton *howToButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [howToButton setTitle:@"How to play" forState:UIControlStateNormal];
         [howToButton setFrame:CGRectMake(40,240,240,32)];
+        [howToButton addTarget:self action:@selector(showHowTo) forControlEvents:UIControlEventTouchUpInside];
         [howToButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [howToButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         howToButton.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -48,6 +52,7 @@
         
         UIButton *aboutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [aboutButton setTitle:@"About iRicardo" forState:UIControlStateNormal];
+        [aboutButton addTarget:self action:@selector(showAbout) forControlEvents:UIControlEventTouchUpInside];
         [aboutButton setFrame:CGRectMake(40,366,240,32)];
         [aboutButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [aboutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
@@ -103,8 +108,26 @@
     }
 }
 
+-(void)showAbout{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"Clip" ofType:@"mov"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filepath];
+    movieController = [[OKMovieViewController alloc] initWithContentURL:fileURL];
+    [self presentViewController:movieController animated:YES completion:nil];
+}
+
+-(void)showHowTo{
+    if(howtoController == nil){
+        howtoController = [[OKHowToViewController alloc] init];
+    }
+    [self presentViewController:howtoController animated:YES completion:nil];
+}
+
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

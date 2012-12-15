@@ -8,6 +8,7 @@
 
 #import "OKScoresViewController.h"
 #import "OKGameProperties.h"
+#import "OKAlertView.h"
 
 @interface OKScoresViewController ()
 
@@ -176,7 +177,7 @@
 }
 
 -(void)removeScoresAlert{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Remove scores" message:@"This will remove your high scores permanently. Are you sure to continue?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    OKAlertView *alertView = [[OKAlertView alloc] initWithTitle:@"Remove scores" message:@"This will remove your high scores permanently. Are you sure to continue?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     [alertView show];
 }
 
@@ -187,6 +188,9 @@
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
