@@ -32,7 +32,7 @@
         
         UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
         [close setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];
-        [close setFrame:CGRectMake((img.size.width-200)/2, img.size.height - 80,200, 44)];
+        [close setFrame:CGRectMake((img.size.width-200)/2, img.size.height - 75,200, 44)];
         [close setTitle:@"CLOSE" forState:UIControlStateNormal];
         [close addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
         [close.titleLabel setAdjustsFontSizeToFitWidth:YES];
@@ -41,6 +41,10 @@
         [self.view addSubview:scrollView];
     }
     return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [scrollView scrollRectToVisible:CGRectMake(0,0,scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
 }
 
 -(void)goBack{
