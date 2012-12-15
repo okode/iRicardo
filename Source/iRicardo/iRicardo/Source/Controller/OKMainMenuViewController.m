@@ -20,6 +20,9 @@
 @synthesize movieController;
 @synthesize howtoController;
 
+@synthesize introView;
+@synthesize skipIntroButton;
+
 -(id)init{
     self = [super init];
     if (self) {
@@ -92,6 +95,34 @@
 
 -(void)startGame{
     gameController = [[OKGameViewController alloc] init];
+    
+    CGFloat w = self.view.frame.size.width;
+    CGFloat h = self.view.frame.size.height;
+    
+    introView = [[UIWebView alloc] init];
+    introView.frame = CGRectMake(0, 0, w, h);
+    introView.scalesPageToFit = YES;
+    [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"starwars" ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
+    [self.view addSubview:introView];
+    
+    skipIntroButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    skipIntroButton.frame = CGRectMake(w - 80, h - 40, 60, 30);
+    [skipIntroButton setTitle:@"SKIP" forState:UIControlStateNormal];
+    [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:skipIntroButton];
+    
+    [[gameController sound] play:OK_AUDIO_INTRO];
+}
+
+-(void)introSkipped:(id)sender
+{
+    [[gameController sound] stop];
+    [introView stopLoading];
+    [introView removeFromSuperview];
+    introView = nil;
+    [skipIntroButton removeFromSuperview];
+    skipIntroButton = nil;
+    
     [self presentViewController:gameController animated:YES completion:nil];
 }
 

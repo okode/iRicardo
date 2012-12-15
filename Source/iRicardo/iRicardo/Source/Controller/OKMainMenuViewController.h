@@ -21,4 +21,7 @@
 @property (nonatomic, strong) OKMovieViewController *movieController;
 @property (nonatomic, strong) OKHowToViewController *howtoController;
 
+@property (nonatomic, strong) UIWebView* introView;
+@property (nonatomic, strong) UIButton* skipIntroButton;
+
 @end
