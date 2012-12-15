@@ -38,6 +38,7 @@
         [self appendSound:OK_AUDIO_ASSIGN_FAILED];
         [self appendSound:OK_AUDIO_GAMEOVER];
         [self appendSound:OK_AUDIO_FANFARE];
+        [self appendSound:OK_AUDIO_INTRO];
     }
     return self;
 }
