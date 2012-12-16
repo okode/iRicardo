@@ -95,6 +95,7 @@
 
 -(void)startGame{
     gameController = [[OKGameViewController alloc] init];
+    for(UIView* subview in self.view.subviews) subview.userInteractionEnabled = NO;
     
     CGFloat w = self.view.frame.size.width;
     CGFloat h = self.view.frame.size.height;
@@ -102,6 +103,7 @@
     introView = [[UIWebView alloc] init];
     introView.frame = CGRectMake(0, 0, w, h);
     introView.scalesPageToFit = YES;
+    introView.userInteractionEnabled = NO;
     [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"starwars" ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
     [self.view addSubview:introView];
     
@@ -116,6 +118,7 @@
 
 -(void)introSkipped:(id)sender
 {
+    for(UIView* subview in self.view.subviews) subview.userInteractionEnabled = YES;
     [[gameController sound] stop];
     [introView stopLoading];
     [introView removeFromSuperview];

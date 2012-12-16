@@ -16,6 +16,11 @@
 -(void)play:(NSString*)sound;
 
 /**
+ * Play selected sound after some delay
+ */
+-(void)play:(NSString*)sound afterDelay:(NSTimeInterval)delay;
+
+/**
  * Stop selected sound if playing
  */
 -(void)stop:(NSString*)sound;

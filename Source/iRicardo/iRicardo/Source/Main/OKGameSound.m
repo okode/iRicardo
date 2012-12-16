@@ -57,13 +57,18 @@
     [[players objectForKey:key] prepareToPlay];
 }
 
--(void)play:(NSString *)sound
+-(void)play:(NSString*)sound
 {
     if([sound isEqualToString:OK_AUDIO_ASSIGN_TASK]) {
         if((++indexAudioAssign > 3)) indexAudioAssign = 1;
         sound = [NSString stringWithFormat:@"%@%d", OK_AUDIO_ASSIGN_TASK, indexAudioAssign];
     }
     [(AVAudioPlayer*)[players objectForKey:sound] play];
+}
+
+-(void)play:(NSString*)sound afterDelay:(NSTimeInterval)delay
+{
+    [self performSelector:@selector(play:) withObject:sound afterDelay:delay];
 }
 
 -(void)stop:(NSString *)sound
