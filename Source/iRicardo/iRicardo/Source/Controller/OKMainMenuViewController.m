@@ -108,13 +108,13 @@
     [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:introResource ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
     [self.view addSubview:introView];
     
-    skipIntroButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    skipIntroButton.frame = CGRectMake(w - 80, h - 40, 60, 30);
-    [skipIntroButton setTitle:@"SKIP" forState:UIControlStateNormal];
+    skipIntroButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    skipIntroButton.frame = CGRectMake(0, 0, w, h);
+    [skipIntroButton setTitle:@"" forState:UIControlStateNormal];
     [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skipIntroButton];
     
-    [[gameController sound] play:OK_AUDIO_INTRO afterDelay:12.0];
+    [[gameController sound] play:OK_AUDIO_INTRO afterDelay:11.70];
 }
 
 -(void)introSkipped:(id)sender

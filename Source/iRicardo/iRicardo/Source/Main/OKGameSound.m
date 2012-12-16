@@ -73,6 +73,7 @@
 
 -(void)stop:(NSString *)sound
 {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(play:) object:sound];
     AVAudioPlayer* player = (AVAudioPlayer*)[players objectForKey:sound];
     [pausedPlayers removeObject:player];
     [player stop];
@@ -91,11 +92,8 @@
 
 -(void)stop
 {
-    for(NSString* sound in players) {
-        AVAudioPlayer* player = (AVAudioPlayer*)[players objectForKey:sound];
-        [player stop];
-    }
-    [pausedPlayers removeAllObjects];
+    for(NSString* sound in players)
+        [self stop:sound];
 }
 
 -(void)resume
