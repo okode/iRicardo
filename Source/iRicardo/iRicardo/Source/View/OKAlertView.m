@@ -22,18 +22,28 @@
         self.layer.borderWidth = 5;
         
         customOkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [customOkButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];
+        [customOkButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];        
+        [customOkButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateHighlighted];
+        [customOkButton setShowsTouchWhenHighlighted:NO];
         [customOkButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
         [customOkButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
+        [customOkButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [customOkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        customOkButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [self addSubview:customOkButton];
         
         if(otherButtonTitles != nil){
             cancelCustomButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [cancelCustomButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];
+            [cancelCustomButton setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateHighlighted];
+            [cancelCustomButton setShowsTouchWhenHighlighted:NO];
             [cancelCustomButton setTitle:otherButtonTitles forState:UIControlStateNormal];
             [cancelCustomButton addTarget:self action:@selector(okButtonPressed) forControlEvents:UIControlEventTouchUpInside];
             [customOkButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-            [cancelCustomButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
+            [cancelCustomButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            [cancelCustomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+            cancelCustomButton.titleLabel.font = [UIFont systemFontOfSize:16];
+            //[cancelCustomButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
             [self addSubview:cancelCustomButton];
         }else{
             [customOkButton addTarget:self action:@selector(okButtonPressed) forControlEvents:UIControlEventTouchUpInside];

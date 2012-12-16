@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OKGameViewController.h"
+#import "OKGameSound.h"
 #import "OKScoresViewController.h"
 #import "OKMovieViewController.h"
 #import "OKHowToViewController.h"
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) OKMovieViewController *movieController;
 @property (nonatomic, strong) OKHowToViewController *howtoController;
 
+@property (nonatomic, strong) OKGameSound* sound;
 @property (nonatomic, strong) UIWebView* introView;
 @property (nonatomic, strong) UIButton* skipIntroButton;
 

@@ -26,6 +26,7 @@
 #define OK_AUDIO_GAMEOVER           @"gameover"
 #define OK_AUDIO_FANFARE            @"fanfare"
 #define OK_AUDIO_INTRO              @"intro"
+#define OK_AUDIO_MENU               @"menu"
 
 #define RIC_SOLVING_TIME            30.0
 #define OVERWORK_TIME               20.0

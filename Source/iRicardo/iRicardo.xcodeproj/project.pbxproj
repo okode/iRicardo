@@ -38,6 +38,7 @@
 		3EFFBF11165ED24E005A448F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFFBF10165ED24E005A448F /* AVFoundation.framework */; };
 		88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FF6166B91F3007553FE /* OKMainMenuViewController.m */; };
 		88146FFB166BC3B0007553FE /* OKScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FFA166BC3B0007553FE /* OKScoresViewController.m */; };
+		8814DFFA167E77A80007B47A /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8814DFF9167E77A80007B47A /* menu.mp3 */; };
 		88B3B7C8167C84B3000894B9 /* OKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7C6167C8460000894B9 /* OKAlertView.m */; };
 		88B3B7CA167C871D000894B9 /* alert-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7C9167C871D000894B9 /* alert-bg@2x.png */; };
 		88B3B7CD167C8978000894B9 /* alert-button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */; };
@@ -102,6 +103,7 @@
 		88146FF6166B91F3007553FE /* OKMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKMainMenuViewController.m; sourceTree = "<group>"; };
 		88146FF9166BC3B0007553FE /* OKScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKScoresViewController.h; sourceTree = "<group>"; };
 		88146FFA166BC3B0007553FE /* OKScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKScoresViewController.m; sourceTree = "<group>"; };
+		8814DFF9167E77A80007B47A /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
 		88B3B7C5167C8460000894B9 /* OKAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKAlertView.h; sourceTree = "<group>"; };
 		88B3B7C6167C8460000894B9 /* OKAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKAlertView.m; sourceTree = "<group>"; };
 		88B3B7C9167C871D000894B9 /* alert-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg@2x.png"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				3EFC10AD167CE12F003B6104 /* intro.mp3 */,
+				8814DFF9167E77A80007B47A /* menu.mp3 */,
 				1263C99D167BEB06008211B1 /* fanfare.mp3 */,
 				3EC667571660FE7100974613 /* breakblock.mp3 */,
 				3EC667581660FE7100974613 /* coin.mp3 */,
@@ -438,6 +441,7 @@
 				88B3B7DD167CC091000894B9 /* howto@2x.png in Resources */,
 				3EFC10AB167CE0C2003B6104 /* intro in Resources */,
 				3EFC10AE167CE12F003B6104 /* intro.mp3 in Resources */,
+				8814DFFA167E77A80007B47A /* menu.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@
 @synthesize movieController;
 @synthesize howtoController;
 
+@synthesize sound;
 @synthesize introView;
 @synthesize skipIntroButton;
 
@@ -81,7 +82,7 @@
         subtitleTitle.shadowColor = [UIColor blackColor];
         subtitleTitle.shadowOffset = CGSizeMake(0.0, 3.0);
         [self.view addSubview:subtitleTitle];
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];        
     }
     return self;
 }
@@ -91,9 +92,15 @@
         [gameController removeGame];
         [self setGameController:nil];
     }
+    if(sound == nil){
+        sound = [[OKGameSound alloc] init];
+        [sound play:OK_AUDIO_MENU];
+    }
 }
 
 -(void)startGame{
+    [sound stop:OK_AUDIO_MENU];
+    
     gameController = [[OKGameViewController alloc] init];
     for(UIView* subview in self.view.subviews) subview.userInteractionEnabled = NO;
     
@@ -104,6 +111,7 @@
     introView.frame = CGRectMake(0, 0, w, h);
     introView.scalesPageToFit = YES;
     introView.userInteractionEnabled = NO;
+    [introView setBackgroundColor:[UIColor blackColor]];
     NSString* introResource = ([[UIScreen mainScreen] bounds].size.height == 568) ? @"starwars-iphone5" : @"starwars";
     [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:introResource ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
     [self.view addSubview:introView];
@@ -114,19 +122,20 @@
     [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skipIntroButton];
     
-    [[gameController sound] play:OK_AUDIO_INTRO afterDelay:11.70];
+    [sound play:OK_AUDIO_INTRO afterDelay:12.20];
 }
 
 -(void)introSkipped:(id)sender
 {
     for(UIView* subview in self.view.subviews) subview.userInteractionEnabled = YES;
-    [[gameController sound] stop];
+    [sound stop];
+    sound = nil;
     [introView stopLoading];
     [introView removeFromSuperview];
     introView = nil;
     [skipIntroButton removeFromSuperview];
     skipIntroButton = nil;
-    
+
     [self presentViewController:gameController animated:YES completion:nil];
 }
 
@@ -144,6 +153,8 @@
 }
 
 -(void)showAbout{
+    [sound stop:OK_AUDIO_MENU];
+    sound = nil;
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"Clip" ofType:@"mov"];
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     movieController = [[OKMovieViewController alloc] initWithContentURL:fileURL];
