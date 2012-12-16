@@ -104,7 +104,8 @@
     introView.frame = CGRectMake(0, 0, w, h);
     introView.scalesPageToFit = YES;
     introView.userInteractionEnabled = NO;
-    [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"starwars" ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
+    NSString* introResource = ([[UIScreen mainScreen] bounds].size.height == 568) ? @"starwars-iphone5" : @"starwars";
+    [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:introResource ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
     [self.view addSubview:introView];
     
     skipIntroButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -113,7 +114,7 @@
     [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skipIntroButton];
     
-    [[gameController sound] play:OK_AUDIO_INTRO];
+    [[gameController sound] play:OK_AUDIO_INTRO afterDelay:12.0];
 }
 
 -(void)introSkipped:(id)sender
