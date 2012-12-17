@@ -199,7 +199,7 @@
 -(void)showAbout{
     [sound stop:OK_AUDIO_MENU];
     sound = nil;
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"Clip" ofType:@"mov"];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"Clip.iphone" ofType:@"mov"];
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     movieController = [[OKMovieViewController alloc] initWithContentURL:fileURL];
     [self presentViewController:movieController animated:YES completion:nil];
