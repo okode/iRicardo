@@ -39,6 +39,10 @@
 		88146FF7166B91F3007553FE /* OKMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FF6166B91F3007553FE /* OKMainMenuViewController.m */; };
 		88146FFB166BC3B0007553FE /* OKScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88146FFA166BC3B0007553FE /* OKScoresViewController.m */; };
 		8814DFFA167E77A80007B47A /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8814DFF9167E77A80007B47A /* menu.mp3 */; };
+		8814DFFD167E84E10007B47A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8814DFFC167E84E10007B47A /* icon@2x.png */; };
+		8814DFFF167E84E50007B47A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8814DFFE167E84E50007B47A /* icon.png */; };
+		88575221167EB23D0004EAE1 /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8857521F167EB23D0004EAE1 /* moon.png */; };
+		88575222167EB23D0004EAE1 /* moon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88575220167EB23D0004EAE1 /* moon@2x.png */; };
 		88B3B7C8167C84B3000894B9 /* OKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7C6167C8460000894B9 /* OKAlertView.m */; };
 		88B3B7CA167C871D000894B9 /* alert-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7C9167C871D000894B9 /* alert-bg@2x.png */; };
 		88B3B7CD167C8978000894B9 /* alert-button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */; };
@@ -104,6 +108,10 @@
 		88146FF9166BC3B0007553FE /* OKScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKScoresViewController.h; sourceTree = "<group>"; };
 		88146FFA166BC3B0007553FE /* OKScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKScoresViewController.m; sourceTree = "<group>"; };
 		8814DFF9167E77A80007B47A /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
+		8814DFFC167E84E10007B47A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8814DFFE167E84E50007B47A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8857521F167EB23D0004EAE1 /* moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon.png; sourceTree = "<group>"; };
+		88575220167EB23D0004EAE1 /* moon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moon@2x.png"; sourceTree = "<group>"; };
 		88B3B7C5167C8460000894B9 /* OKAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKAlertView.h; sourceTree = "<group>"; };
 		88B3B7C6167C8460000894B9 /* OKAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKAlertView.m; sourceTree = "<group>"; };
 		88B3B7C9167C871D000894B9 /* alert-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg@2x.png"; sourceTree = "<group>"; };
@@ -217,6 +225,8 @@
 		88D3BB241632A4F500935CDF = {
 			isa = PBXGroup;
 			children = (
+				8814DFFE167E84E50007B47A /* icon.png */,
+				8814DFFC167E84E10007B47A /* icon@2x.png */,
 				3E4BF9341650329900CCE00C /* Default-568h@2x.png */,
 				88D3BB391632A4F600935CDF /* iRicardo */,
 				88D3BB321632A4F600935CDF /* Frameworks */,
@@ -340,6 +350,8 @@
 				1258061A167BA03E00E66C7A /* progress-bg.png */,
 				1258061C167BA04500E66C7A /* progress-bg@2x.png */,
 				1258061E167BA04A00E66C7A /* progress-fill.png */,
+				8857521F167EB23D0004EAE1 /* moon.png */,
+				88575220167EB23D0004EAE1 /* moon@2x.png */,
 				12580620167BA04E00E66C7A /* progress-fill@2x.png */,
 				12864C4B16792CF300277842 /* game_background@2x.png */,
 				12964D4D167CBADC0073565E /* main_background@2x.png */,
@@ -442,6 +454,10 @@
 				3EFC10AB167CE0C2003B6104 /* intro in Resources */,
 				3EFC10AE167CE12F003B6104 /* intro.mp3 in Resources */,
 				8814DFFA167E77A80007B47A /* menu.mp3 in Resources */,
+				8814DFFD167E84E10007B47A /* icon@2x.png in Resources */,
+				8814DFFF167E84E50007B47A /* icon.png in Resources */,
+				88575221167EB23D0004EAE1 /* moon.png in Resources */,
+				88575222167EB23D0004EAE1 /* moon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

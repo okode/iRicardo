@@ -22,6 +22,8 @@
 @property (nonatomic, strong) OKMovieViewController *movieController;
 @property (nonatomic, strong) OKHowToViewController *howtoController;
 
+@property (nonatomic, strong) UIImageView *moon;
+@property (nonatomic, assign) BOOL playingAnimation;
 @property (nonatomic, strong) OKGameSound* sound;
 @property (nonatomic, strong) UIWebView* introView;
 @property (nonatomic, strong) UIButton* skipIntroButton;

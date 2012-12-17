@@ -20,13 +20,17 @@
 @synthesize movieController;
 @synthesize howtoController;
 
+@synthesize moon;
 @synthesize sound;
 @synthesize introView;
 @synthesize skipIntroButton;
+@synthesize playingAnimation;
 
 -(id)init{
     self = [super init];
     if (self) {
+        playingAnimation = NO;
+        
         UIButton *startButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [startButton setTitle:@"Start game" forState:UIControlStateNormal];
         [startButton setFrame:CGRectMake(40,177,240,32)];
@@ -64,9 +68,18 @@
         [self.view addSubview:aboutButton];
         
         [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setShadowOffset:CGSizeMake(2.0, 2.0)];
-
         
-        UILabel * iRicardoTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,19,300,50)];
+        UIView *cutView = [[UIView alloc] initWithFrame:CGRectMake(16,16,290,126)];
+        [cutView setBackgroundColor:[UIColor clearColor]];
+        [cutView setClipsToBounds:YES];
+        [self.view addSubview:cutView];
+        
+        moon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moon"]];
+        [moon setFrame:CGRectMake(220,60,175,175)];
+        [moon setContentMode:UIViewContentModeRedraw];
+        [cutView addSubview:moon];
+
+        UILabel * iRicardoTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,40,300,50)];
         [iRicardoTitle setText:[NSString stringWithFormat:@"iRicardo"]];
         [iRicardoTitle setFont:[UIFont systemFontOfSize:40]];
         [iRicardoTitle setBackgroundColor:[UIColor clearColor]];
@@ -74,7 +87,7 @@
         iRicardoTitle.shadowColor = [UIColor blackColor];
         iRicardoTitle.shadowOffset = CGSizeMake(0.0, 3.0);
         [self.view addSubview:iRicardoTitle];
-        UILabel * subtitleTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,64,300,26)];
+        UILabel * subtitleTitle = [[UILabel alloc] initWithFrame:CGRectMake(23,85,300,26)];
         [subtitleTitle setText:[NSString stringWithFormat:@"Project Manager"]];
         [subtitleTitle setFont:[UIFont systemFontOfSize:18.4]];
         [subtitleTitle setBackgroundColor:[UIColor clearColor]];
@@ -82,9 +95,23 @@
         subtitleTitle.shadowColor = [UIColor blackColor];
         subtitleTitle.shadowOffset = CGSizeMake(0.0, 3.0);
         [self.view addSubview:subtitleTitle];
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];        
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
+        
     }
     return self;
+}
+
+-(void)startMoonAnimation{
+    [UIView animateWithDuration:120 animations:^{
+        if(!playingAnimation) return;
+        [moon setFrame:CGRectMake(-150,-120,90,90)];
+    } completion:^(BOOL finished) {
+        if(finished){
+            [moon setFrame:CGRectMake(260,110,175,175)];
+            if(playingAnimation)
+                [self startMoonAnimation];
+        }
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -95,7 +122,15 @@
     if(sound == nil){
         sound = [[OKGameSound alloc] init];
         [sound play:OK_AUDIO_MENU];
+        
     }
+    playingAnimation = YES;
+    [self startMoonAnimation];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    playingAnimation = NO;
+    [moon setFrame:CGRectMake(220,60,175,175)];
 }
 
 -(void)startGame{
@@ -108,13 +143,19 @@
     CGFloat h = self.view.frame.size.height;
     
     introView = [[UIWebView alloc] init];
-    introView.frame = CGRectMake(0, 0, w, h);
+    introView.frame = CGRectMake(0, h, w, h);
     introView.scalesPageToFit = YES;
     introView.userInteractionEnabled = NO;
+    [introView setOpaque:NO];
     [introView setBackgroundColor:[UIColor blackColor]];
+    [introView.scrollView setBackgroundColor:[UIColor blackColor]];
     NSString* introResource = ([[UIScreen mainScreen] bounds].size.height == 568) ? @"starwars-iphone5" : @"starwars";
     [introView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:introResource ofType:@"html" inDirectory:@"intro/"]isDirectory:NO]]];
     [self.view addSubview:introView];
+    
+    [UIView animateWithDuration:0.44 animations:^{
+        introView.frame = CGRectMake(0, 0, w, h);
+    } completion:nil];
     
     skipIntroButton = [UIButton buttonWithType:UIButtonTypeCustom];
     skipIntroButton.frame = CGRectMake(0, 0, w, h);
@@ -122,7 +163,7 @@
     [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skipIntroButton];
     
-    [sound play:OK_AUDIO_INTRO afterDelay:12.20];
+    [sound play:OK_AUDIO_INTRO afterDelay:12.60];
 }
 
 -(void)introSkipped:(id)sender

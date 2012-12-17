@@ -31,7 +31,6 @@
         
         
         UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
-        //[close setBackgroundImage:[UIImage imageNamed:@"alert-button-normal.png"] forState:UIControlStateNormal];
 
         [close setTitle:@"Return to Main" forState:UIControlStateNormal];
         [close setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -40,10 +39,8 @@
 
         
         
-        [close setFrame:CGRectMake((img.size.width-220)/2, img.size.height - 65,220, 44)];
-        //[close setTitle:@"CLOSE" forState:UIControlStateNormal];
+        [close setFrame:CGRectMake((img.size.width-220)/2, img.size.height - 75,220, 44)];
         [close addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-        //[close.titleLabel setAdjustsFontSizeToFitWidth:YES];
         [scrollView addSubview:close];
         
         [self.view addSubview:scrollView];
