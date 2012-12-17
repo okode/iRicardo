@@ -166,18 +166,18 @@
     [sound play:OK_AUDIO_INTRO afterDelay:12.60];
 }
 
--(void)introSkipped:(id)sender
-{
+-(void)introSkipped:(id)sender{
     for(UIView* subview in self.view.subviews) subview.userInteractionEnabled = YES;
     [sound stop];
     sound = nil;
+    
+    [self presentViewController:gameController animated:YES completion:nil];
+    
     [introView stopLoading];
     [introView removeFromSuperview];
     introView = nil;
     [skipIntroButton removeFromSuperview];
     skipIntroButton = nil;
-
-    [self presentViewController:gameController animated:YES completion:nil];
 }
 
 -(void)showScores{

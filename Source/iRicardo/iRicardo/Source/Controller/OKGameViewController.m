@@ -154,7 +154,7 @@
         
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"game_background.png"]]];
         [self setModalPresentationStyle:UIModalPresentationFullScreen];
-        [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         
         sound = [[OKGameSound alloc] init];
     }
