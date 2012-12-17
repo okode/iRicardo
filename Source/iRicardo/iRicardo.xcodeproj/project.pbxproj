@@ -43,6 +43,7 @@
 		8814DFFF167E84E50007B47A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8814DFFE167E84E50007B47A /* icon.png */; };
 		88575221167EB23D0004EAE1 /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8857521F167EB23D0004EAE1 /* moon.png */; };
 		88575222167EB23D0004EAE1 /* moon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88575220167EB23D0004EAE1 /* moon@2x.png */; };
+		88A9361E167FE00200382B2D /* Clip.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 88E8486D167FD7FA0011543B /* Clip.mp4 */; };
 		88B3B7C8167C84B3000894B9 /* OKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B7C6167C8460000894B9 /* OKAlertView.m */; };
 		88B3B7CA167C871D000894B9 /* alert-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7C9167C871D000894B9 /* alert-bg@2x.png */; };
 		88B3B7CD167C8978000894B9 /* alert-button-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B7CB167C8977000894B9 /* alert-button-normal@2x.png */; };
@@ -153,7 +154,7 @@
 		88D3BB6B16331D5900935CDF /* logo_jira_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_jira_blue.png; sourceTree = "<group>"; };
 		88E84866167FB7270011543B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		88E84869167FB72C0011543B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		88E8486D167FD7FA0011543B /* Clip.iphone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clip.iphone.mp4; sourceTree = "<group>"; };
+		88E8486D167FD7FA0011543B /* Clip.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clip.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +220,7 @@
 		88B3B7DF167CC0AE000894B9 /* others */ = {
 			isa = PBXGroup;
 			children = (
-				88E8486D167FD7FA0011543B /* Clip.iphone.mp4 */,
+				88E8486D167FD7FA0011543B /* Clip.mp4 */,
 				12580622167BB13A00E66C7A /* 8-BIT WONDER.TTF */,
 			);
 			name = others;
@@ -421,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A9361E167FE00200382B2D /* Clip.mp4 in Resources */,
 				12580625167BB38400E66C7A /* 8-BIT WONDER.TTF in Resources */,
 				88D3BB3E1632A4F600935CDF /* InfoPlist.strings in Resources */,
 				88D3BB6C16331D5900935CDF /* jira.png in Resources */,
