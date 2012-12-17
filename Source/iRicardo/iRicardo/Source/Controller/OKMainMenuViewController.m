@@ -104,7 +104,7 @@
 -(void)startMoonAnimation{
     [UIView animateWithDuration:120 animations:^{
         if(!playingAnimation) return;
-        [moon setFrame:CGRectMake(-150,-120,90,90)];
+        [moon setFrame:CGRectMake(-150,-120,120,120)];
     } completion:^(BOOL finished) {
         if(finished){
             [moon setFrame:CGRectMake(260,110,175,175)];
@@ -114,7 +114,12 @@
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     if(gameController){
         [gameController removeGame];
         [self setGameController:nil];
@@ -162,7 +167,7 @@
     [skipIntroButton addTarget:self action:@selector(introSkipped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skipIntroButton];
     
-    [sound play:OK_AUDIO_INTRO afterDelay:12.60];
+    [sound play:OK_AUDIO_INTRO afterDelay:12.55];
 }
 
 -(void)introSkipped:(id)sender{

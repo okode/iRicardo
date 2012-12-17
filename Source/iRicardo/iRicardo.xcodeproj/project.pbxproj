@@ -69,6 +69,8 @@
 		88D3BB6C16331D5900935CDF /* jira.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6916331D5900935CDF /* jira.png */; };
 		88D3BB6D16331D5900935CDF /* jira@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6A16331D5900935CDF /* jira@2x.png */; };
 		88D3BB6E16331D5900935CDF /* logo_jira_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D3BB6B16331D5900935CDF /* logo_jira_blue.png */; };
+		88E84867167FB7270011543B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88E84866167FB7270011543B /* Default@2x.png */; };
+		88E8486A167FB72C0011543B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 88E84869167FB72C0011543B /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +153,8 @@
 		88D3BB6916331D5900935CDF /* jira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jira.png; sourceTree = "<group>"; };
 		88D3BB6A16331D5900935CDF /* jira@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jira@2x.png"; sourceTree = "<group>"; };
 		88D3BB6B16331D5900935CDF /* logo_jira_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_jira_blue.png; sourceTree = "<group>"; };
+		88E84866167FB7270011543B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		88E84869167FB72C0011543B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,8 @@
 		88D3BB241632A4F500935CDF = {
 			isa = PBXGroup;
 			children = (
+				88E84869167FB72C0011543B /* Default.png */,
+				88E84866167FB7270011543B /* Default@2x.png */,
 				8814DFFE167E84E50007B47A /* icon.png */,
 				8814DFFC167E84E10007B47A /* icon@2x.png */,
 				3E4BF9341650329900CCE00C /* Default-568h@2x.png */,
@@ -458,6 +464,8 @@
 				8814DFFF167E84E50007B47A /* icon.png in Resources */,
 				88575221167EB23D0004EAE1 /* moon.png in Resources */,
 				88575222167EB23D0004EAE1 /* moon@2x.png in Resources */,
+				88E84867167FB7270011543B /* Default@2x.png in Resources */,
+				88E8486A167FB72C0011543B /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
